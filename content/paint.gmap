@@ -1,0 +1,18 @@
+TEXTURE normal;none;200;50;(0,0,0,1);(0,0,0,1)
+TEXTURE hovered;none;200;50;(1,1,1,1);(0,0,0,1)
+TEXTURE pressed;none;200;50;(254,3,89,1);(0,0,0,1)
+TEXTURE disabled;none;200;50;(36,84,255,1);(0,0,0,1)
+[paint]
+    [CANVAS;header;0;0;1920;50;]
+        COMBO file;200;50;200;50;(new file,open file,save file,open url,open location,open as layer,save,save as,show in manager);none;false;normal;hovered;pressed;disabled
+        COMBO edition;400;50;200;50;(none);none;false;normal;hovered;pressed;disabled
+        COMBO help;600;50;200;50;(help,context help,bug report);none;none;normal;hovered;pressed;disabled
+    [END]
+    [CANVAS;paint;50;50;1536;864;0]
+    [END]
+[END-MAP]
+
+[CANVAS;name;pos_x;pos_y;size_x;size_y;bg_color]
+TEXTURE name;img;size_x;size_y;tint(rgba);border(rgba);
+COMBO name;pos_x;pos_y;size_x;size_y;(option);selected_option;diplay_arrow;normal;hovered;pressed;disabled
+BUTTON name;pos_x;pos_y;size_x;size_y;scale_x;scale_y;is_interactive
