@@ -20,46 +20,24 @@ int my_strlen(const char *str)
 }
 
 //need my lib here
-static int spaces_counter(char *str)
-{
-    int nb = 0;
-
-    for (int i = 0; str[i] != '\0'; i++){
-        if (str[i] == ' ');
-            nb++;
-    }
-    return nb;
-}
-
-//need my lib here
-int is_char_printable(char str)
-{
-    int i = 0;
-
-    if (str >= '!' && str <= '~')
-        return 0;
-    return 1;
-}
-
-//need my lib here
-char **my_str_to_word_array(char *str)
+static char **my_str_to_word_array(char *str)
 {
     int x = 0;
     int y = 0;
     char **tab;
 
     for (; *str == ' '; str++);
-    tab = malloc(sizeof(char *) * spaces_counter(str));
+    for (int i = 0; str[i] != '\0'; i++)
+        y++;
+    tab = malloc(sizeof(char *) * y);
     for (int j = 0; j < my_strlen(str); j++) {
         tab[x] = malloc(my_strlen(str));
-        y = 0;
-        for (; is_char_printable(str[j]) == 0 && str[j] != ' '; j++) {
+        for (y = 0; (str[j] >= '!' && str[j] <= '~') && str[j] != ' '; j++) {
             tab[x][y] = str[j];
             y++;
         }
-        tab[x][y] = '\0';
+        for (tab[x][y] = '\0'; str[j + 1] == ' '; j++);
         x++;
-        for (; str[j + 1] == ' '; j++);
     }
     tab[x] = NULL;
     return tab;
@@ -113,12 +91,11 @@ static char *open_file(void)
     return str;
 }
 
-char **creat_tab(char *str)
+static char **creat_tab(char *str)
 {
     int num_lines = 0;
     char **tab;
     int j = 0;
-    int k = 0;
 
     for (int i = 0; str[i] != '\0'; i++)
         num_lines += (str[i] == '\n') ? 1 : 0;
@@ -126,17 +103,18 @@ char **creat_tab(char *str)
     for (int i = 0; str[i] != '\0'; j++) {
         for (; str[i] == '\n'; i++);
         tab[j] = malloc((my_strlen(str) + 1));
-        for (k = 0; str[i] != '\0' && str[i] != '\n'; k++) {
+        for (int k = 0; str[i] != '\0' && str[i] != '\n'; k++) {
             tab[j][k] = str[i];
             i++;
+            tab[j][k + 1] = '\0';
         }
-        tab[j][k] = '\0';
     }
     tab[j] = NULL;
+    free(str);
     return tab;
 }
 
-char *my_getname(char *str)
+static char *my_getname(char *str)
 {
     int name_len = my_strlen(str);
 
@@ -148,9 +126,16 @@ char *my_getname(char *str)
     return &str[1];
 }
 
-int parsing(char **tab)
+void free_tab(char **tab)
 {
-    char **word_tab = malloc(sizeof(char *) * 3);
+    for (int i = 0; tab[i]; i++)
+        free(tab[i]);
+    free(tab);
+}
+
+static int parsing(char **tab)
+{
+    char **word_tab;
 
     for (int i = 0; tab[i]; i++){
         word_tab = my_str_to_word_array(tab[i]);
@@ -164,7 +149,9 @@ int parsing(char **tab)
             printf("bit_var = %d\n", my_getnbr(word_tab[1]));
         if (!my_strcmp(word_tab[0], "name"))
             printf("name_var = %s\n", my_getname(&tab[i][5]));
+        free_tab(word_tab);
     }
+    free_tab(tab);
 }
 
 int main(int ac, int av)
@@ -173,17 +160,12 @@ int main(int ac, int av)
     char **file_data = creat_tab(data_buffer);
 
     parsing(file_data);
-    for (int i = 0; file_data[i]; i++){
-        free(file_data[i]);
-    }
-    free(file_data);
-    free(data_buffer);
     return 0;
 }
 
 /*
 you only have to :
     - change all the printfs
-    - add the functions with comm in a lib (i have them in my lib, but no lib here LMAO)
+    - add the functions with comm in a lib (i did not added my lib that's why)
     - coding style done :  remove the functions and this comm
 */
