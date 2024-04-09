@@ -5,9 +5,6 @@
 ** step.c
 */
 #include "engine/widgets/widgets.h"
-#include "engine/types.h"
-#include "engine/core.h"
-#include "engine/ressource.h"
 
 int len_step(canvas_t **step)
 {

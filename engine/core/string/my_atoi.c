@@ -10,7 +10,7 @@
 int my_atoi(char const *str)
 {
     int isnumber = 0;
-    gbool isnegative = FALSE;
+    gbool_t isnegative = FALSE;
     int num = 0;
 
     if (!my_strcmp(str, "-2147483648"))

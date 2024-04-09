@@ -26,6 +26,7 @@ int main(void)
     Game_engine = malloc(sizeof(game_engine_t));
     init_events();
     init_map();
+    init_texture();
     if (construct() == FAIL)
         return 1;
     init_windows();
@@ -36,8 +37,8 @@ int main(void)
 void window_destroy(void)
 {
     delete_scan();
-    unload_all_canvas(get_mapinfo()->canvas);
-    unload_all_canvas(get_mapinfo()->preloaded);
+    delete_all_canvas(get_mapinfo()->canvas);
+    delete_all_canvas(get_mapinfo()->preloaded);
     unload_textures();
     sfRenderWindow_destroy(Game_engine->windows->window);
     FREE(Game_engine->windows);

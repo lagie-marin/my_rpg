@@ -2,29 +2,30 @@
 ** EPITECH PROJECT, 2024
 ** B-MUL-200-LYN-2-1-mypaint-maellie.brient-bert
 ** File description:
-** get.c
+** get_canvas.c
 */
 #include "engine/widgets/widgets.h"
 #include "engine/types.h"
-#include "engine/ressource.h"
-#include "engine/window.h"
 #include "engine/core.h"
+#include "engine/window.h"
 
-static gbool is_equal(search_t search, canvas_t *canvas, void *prop)
+static gbool_t is_equal(search_t search, canvas_t *canvas, void *prop)
 {
-    v2i pos;
+    v2i_t pos;
 
-    RETURN_IF(canvas == NULL, FALSE);
-    RETURN_IF(search == NAME && !my_strcmp(canvas->name, prop), TRUE);
+    if (canvas == NULL)
+        return FALSE;
+    if (search == NAME && !my_strcmp(canvas->name, prop))
+        return TRUE;
     if (search == POS_MV) {
-        pos = *(v2i *) prop;
+        pos = *(v2i_t *) prop;
         RETURN_IF(pos.x >= canvas->pos.x &&
             pos.x <= canvas->pos.x + canvas->size.x &&
             pos.y >= canvas->pos.y &&
             pos.y <= canvas->pos.y + canvas->size.y, TRUE);
     }
     if (search == POS) {
-        pos = *(v2i *) prop;
+        pos = *(v2i_t *) prop;
         RETURN_IF(canvas->pos.x == pos.x && canvas->pos.y == pos.y, TRUE);
     }
     return FALSE;
@@ -50,7 +51,7 @@ static canvas_t *search_canvas(search_t srch, char *prop, list_widgets_t *list)
     return NULL;
 }
 
-static canvas_t *getcanvas_prop(void *prop, search_t srch, gbool use_preload)
+static canvas_t *getcanvas_prop(void *prop, search_t srch, gbool_t use_preload)
 {
     canvas_t **actual = get_mapinfo()->canvas;
     canvas_t *current;
@@ -72,21 +73,21 @@ canvas_t *getcanvas_name(char *name)
     return getcanvas_prop(name, NAME, TRUE);
 }
 
-v2i getcanvas_pos_by_name(char *name)
+v2i_t getcanvas_pos_by_name(char *name)
 {
     canvas_t *canvas = getcanvas_name(name);
 
     if (canvas == NULL)
-        return (v2i) {-1, -1};
+        return (v2i_t) {-1, -1};
     return canvas->pos;
 }
 
-v2f getcanvas_size_by_name(char *name)
+v2f_t getcanvas_size_by_name(char *name)
 {
     canvas_t *canvas = getcanvas_name(name);
 
     if (canvas == NULL)
-        return (v2f) {-1.0, -1.0};
+        return (v2f_t) {-1.0, -1.0};
     return canvas->size;
 }
 
@@ -102,7 +103,7 @@ list_widgets_t *getcanvas_widget_by_name(char *name)
 canvas_t *getcanvas_atposition(int x, int y)
 {
     canvas_t *actual = get_mapinfo()->actual;
-    v2i pos = {x, y};
+    v2i_t pos = {x, y};
 
     if (is_equal(POS_MV, actual, (void *) &pos))
         return actual;

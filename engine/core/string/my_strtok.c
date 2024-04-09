@@ -6,7 +6,7 @@
 */
 #include "engine/core.h"
 
-static int word_count(const char *c, cc delimiters)
+static int word_count(const char *c, cc_t delimiters)
 {
     int count = 1;
 
@@ -17,7 +17,7 @@ static int word_count(const char *c, cc delimiters)
     return count;
 }
 
-static int len_word(const char *str, int i, cc delimiters)
+static int len_word(const char *str, int i, cc_t delimiters)
 {
     int x = i;
 
@@ -26,7 +26,7 @@ static int len_word(const char *str, int i, cc delimiters)
     return x - i;
 }
 
-static int next_carac(const char *str, int i, cc delimiters)
+static int next_carac(const char *str, int i, cc_t delimiters)
 {
     int x = i;
 
@@ -35,7 +35,7 @@ static int next_carac(const char *str, int i, cc delimiters)
     return x;
 }
 
-static void process(char const *str, array arr, int nb_word, cc del)
+static void process(char const *str, array_t arr, int nb_word, cc_t del)
 {
     int word_len = 0;
     int pos_s = 0;
@@ -57,10 +57,10 @@ static void process(char const *str, array arr, int nb_word, cc del)
     arr[pos_t] = NULL;
 }
 
-array my_strtok(const char *str, cc delimiters)
+array_t my_strtok(const char *str, cc_t delimiters)
 {
     int nb_word = word_count(str, delimiters);
-    array word_array = malloc(sizeof(char *) * (nb_word + 1));
+    array_t word_array = malloc(sizeof(char *) * (nb_word + 1));
 
     process(str, word_array, nb_word, delimiters);
     return word_array;

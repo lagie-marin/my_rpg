@@ -14,7 +14,7 @@ static void clean_load(char *line, canvas_t **step)
     FREE(step);
 }
 
-static status is_widget(char *str, char *to_find, gbool is_map)
+static status_t is_widget(char *str, char *to_find, gbool_t is_map)
 {
     int x = 0;
 
@@ -26,7 +26,7 @@ static status is_widget(char *str, char *to_find, gbool is_map)
     return SUCCESS;
 }
 
-static sload gmap_parse_line(char *line, char *name, canvas_t ***step, sload s)
+static sload_t gmap_parser(char *line, char *name, canvas_t ***step, sload_t s)
 {
     if (is_widget(line, "TEXTURE", FALSE))
         return gmap_parse_texture(line);
@@ -34,8 +34,6 @@ static sload gmap_parse_line(char *line, char *name, canvas_t ***step, sload s)
         return ON_MAP;
     if (is_widget(line, "[CANVAS;", IS_ON_MAP(s)))
         return gmap_parse_canvas(line, step, s);
-    if (is_widget(line, "COMBO ", IS_ON_MAP(s)))
-        return gmap_parse_combo(line, *step, s);
     if (is_widget(line, "[END]", TRUE)) {
         *step = rm_step(*step);
         return OUT_MAP;
@@ -60,7 +58,7 @@ static canvas_t **stepac(void)
     return step;
 }
 
-status load(char *name)
+status_t load(char *name)
 {
     FILE *file;
     maps_t *current_maps = get_current_map(name);
@@ -68,14 +66,14 @@ status load(char *name)
     size_t len;
     ssize_t read;
     canvas_t **step = stepac();
-    sload s = NONE;
+    sload_t s = NONE;
 
     RETURN_IF(current_maps == NULL && put_error(MAP_NOT_EXIST), FAIL);
     file = fopen(current_maps->path, "r");
     RETURN_IF(file == NULL && put_error(FD_NOT_EXIST), FAIL);
     read = my_getline(&line, &len, file);
     while (read != -1 && my_strcmp(line, "[END-MAP]") && s != ERROR) {
-        s = gmap_parse_line(line, name, &step, s);
+        s = gmap_parser(line, name, &step, s);
         read = my_getline(&line, &len, file);
     }
     fclose(file);

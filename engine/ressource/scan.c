@@ -11,7 +11,7 @@
 static maps_t *create_map(char *name, char *path)
 {
     maps_t *newNode = malloc(sizeof(maps_t));
-    array name_extension = my_strtok(name, '.');
+    array_t name_extension = my_strtok(name, '.');
 
     my_strcpy(newNode->name, name_extension[0]);
     my_strcpy(newNode->path, path);

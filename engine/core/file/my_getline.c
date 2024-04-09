@@ -6,7 +6,7 @@
 */
 #include "engine/core.h"
 
-ssize_t my_getline(array input, size_t *len, FILE *stream)
+ssize_t my_getline(array_t input, size_t *len, FILE *stream)
 {
     ssize_t bytes = 0;
 

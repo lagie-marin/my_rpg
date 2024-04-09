@@ -10,10 +10,10 @@
 #ifndef WIDGETS_H
     #define WIDGETS_H
     //Texture
-    #define DEF_SIZE (v2i) {20, 20}
-    #define DEF_TINT (sfColor) {60, 60, 60, 1}
-    #define DEF_BORDER (sfColor) {0, 0, 0, 1}
-typedef enum widgets_type_s widgets_type;
+    #define DEF_TINT color(60, 60, 60, 1)
+    #define DEF_BORDER color(0, 0, 0, 1)
+    #define UNLOAD_WIDGET(widget, type) unload[type](widget)
+typedef enum widgets_type_s widgets_type_t;
 typedef enum cursor_s cursor_t;
 typedef enum search_s search_t;
 typedef enum combo_elmt_s combo_elmt_t;
@@ -21,11 +21,13 @@ typedef struct list_widgets_s list_widgets_t;
 typedef struct texture_s texture_t;
 typedef struct canvas_s canvas_t;
 typedef struct combos_s combos_t;
-typedef struct button_s button;
+typedef struct button_s button_t;
+typedef void (*fhovered_t)(button_t *button, sfMouseMoveEvent *mouse);
+typedef void (*fpressed_t)(button_t *button, sfMouseButtonEvent *mouse);
+typedef void (*freleased_t)(button_t *button, sfMouseButtonEvent *mouse);
 
 enum widgets_type_s {
     CANVAS,
-    COMBO,
     BUTTON
 };
 
@@ -63,7 +65,7 @@ enum combo_elmt_s {
 };
 
 struct list_widgets_s {
-    widgets_type type;
+    widgets_type_t type;
     void *content;
     list_widgets_t *next;
     list_widgets_t *prev;
@@ -72,25 +74,26 @@ struct list_widgets_s {
 struct texture_s {
     char *name;
     char *img;
-    v2i size;
+    v2f_t size;
     sfColor tint;
     sfColor border;
 };
 
 struct canvas_s {
     char *name;
-    v2i pos;
-    v2f size;
+    v2i_t pos;
+    v2f_t size;
     list_widgets_t *widgets;
+    gbool_t visible;
 };
 
 struct combos_s {
     char *name;
-    v2f pos;
-    v2f size;
-    array option;
+    v2f_t pos;
+    v2f_t size;
+    array_t option;
     int selected_opt;
-    gbool display_arrow;
+    gbool_t display_arrow;
     texture_t *normal;
     texture_t *hovered;
     texture_t *pressed;
@@ -99,52 +102,86 @@ struct combos_s {
 
 struct button_s {
     char *name;
-    v2f pos;
-    v2f size;
-    v2f scale;
-    gbool is_interactive;
+    gbool_t is_disabled;
+    sfRectangleShape *btn_shape;
+    texture_t *normal;
+    texture_t *hovered;
+    texture_t *pressed;
+    texture_t *disabled;
+    float thickness;
+    fhovered_t fhovered;
+    fpressed_t fpressed;
+    freleased_t freleased;
 };
 
-void add_widget(list_widgets_t **begin, void *widget, widgets_type type);
-void unload_widget(list_widgets_t *begin);
+extern void (*unload[2])();
+extern void (*delete[2])();
+
+/**
+ * @brief Permet d'ajouter un widget dans l'interface
+ * @param begin la liste du widget qui est contenue dans le canvas
+ * @param widget le widget que vous voulez ajouter
+ * @param type le type du widget
+ */
+void add_widget(list_widgets_t **begin, void *widget, widgets_type_t type);
+
+/**
+ * @brief permet de supprimer défénitivement les widgets
+ * @param begin la liste des widgets qui se trouve dans le canvas
+ */
+void delete_widget(list_widgets_t *begin);
 
 canvas_t **add_step(canvas_t **step, canvas_t *new_step);
 canvas_t **rm_step(canvas_t **step);
 int len_step(canvas_t **step);
 
-sload gmap_parse_canvas(char *line, canvas_t ***step, sload tl);
+sload_t gmap_parse_canvas(char *line, canvas_t ***step, sload_t tl);
 canvas_t *create_canvas(char *name);
 void setcanvas_name(canvas_t *canvas, char *name);
-void setcanvas_pos(canvas_t *canvas, v2i pos);
-void setcanvas_size(canvas_t *canvas, v2f size);
+void setcanvas_pos(canvas_t *canvas, v2i_t pos);
+void setcanvas_size(canvas_t *canvas, v2f_t size);
 void setcanvas_widget(canvas_t *canvas, void *widget);
 void setcurrent_canvas(int x, int y);
 canvas_t *getcanvas_name(char *name);
-v2i getcanvas_pos_by_name(char *name);
-v2f getcanvas_size_by_name(char *name);
+v2i_t getcanvas_pos_by_name(char *name);
+v2f_t getcanvas_size_by_name(char *name);
 list_widgets_t *getcanvas_widget_by_name(char *name);
 canvas_t *getcanvas_atposition(int x, int y);
-void unload_all_canvas(canvas_t **canvas);
 void unload_canvas(canvas_t *canvas);
+void delete_all_canvas(canvas_t **canvas);
+void delete_canvas(canvas_t *canvas);
 
-sload gmap_parse_combo(char *line, canvas_t **step, sload tl);
+// sload gmap_parse_combo(char *line, canvas_t **step, sload tl);
 void setcombos_name(combos_t *combos, char *name);
-void setcombos_pos(combos_t *combos, v2f pos);
-void setcombos_size(combos_t *combos, v2f size);
-void setcombos_options(combos_t *combos, array options, int selected_opt);
-void setcombos_display_arrow(combos_t *combos, gbool display);
+void setcombos_pos(combos_t *combos, v2f_t pos);
+void setcombos_size(combos_t *combos, v2f_t size);
+void setcombos_options(combos_t *combos, array_t options, int selected_opt);
+void setcombos_display_arrow(combos_t *combos, gbool_t display);
 
+void init_texture(void);
 texture_t *create_texture(char *name);
 void settexture_name(texture_t *texture, char *name);
 void settexture_img(texture_t *texture, char *img);
-void settexture_size(texture_t *texture, v2i size);
+void settexture_size(texture_t *texture, v2f_t size);
 void settexture_tint(texture_t *texture, sfColor tint);
 void settexture_border(texture_t *texture, sfColor border);
 void append_texture(texture_t *texture);
 texture_t *gettexture_by_name(char *name);
 char *gettexture_img_by_name(char *name);
-v2i gettexture_size_by_name(char *name);
+v2f_t gettexture_size_by_name(char *name);
 sfColor gettexture_tint_by_name(char *name);
 sfColor gettexture_border_by_name(char *name);
 void unload_textures(void);
+
+int setbtn_shape(button_t *button, char *name_texture);
+void setbtn_shape_pos(button_t *button, v2f_t pos);
+void setbtn_shape_size(button_t *button, v2f_t size);
+void setbtn_shape_scale(button_t *button, v2f_t scale);
+void setbutton_disabled(button_t *button, gbool_t disabled);
+void setbutton_thickness(button_t *button, float thickness);
+void setbutton_event_hovered(button_t *button, fhovered_t hovered);
+void setbutton_event_pressed(button_t *button, fpressed_t pressed);
+void setbutton_event_released(button_t *button, freleased_t released);
+void unload_button(button_t *button);
+void delete_button(button_t *button);
 #endif

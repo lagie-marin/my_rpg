@@ -7,9 +7,9 @@
 
 #include "engine.h"
 
-status construct(void)
+status_t construct(void)
 {
-    status stat = load("paint");
+    status_t stat = load("paint");
     canvas_t *canvas;
 
     my_printf("stat: %i\n", stat);
@@ -26,7 +26,7 @@ void paint(sfRenderWindow *window, sfRectangleShape *brush)
 
     if (sfMouse_isButtonPressed(sfMouseLeft)) {
         mouse_pos = sfMouse_getPositionRenderWindow(window);
-        sfRectangleShape_setPosition(brush, (v2f){mouse_pos.x, mouse_pos.y});
+        sfRectangleShape_setPosition(brush, (v2f_t){mouse_pos.x, mouse_pos.y});
         sfRenderWindow_drawRectangleShape(window, brush, NULL);
     }
 }

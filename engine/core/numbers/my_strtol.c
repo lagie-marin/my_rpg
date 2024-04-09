@@ -10,7 +10,7 @@
 long int my_strtol(char *string, char **end)
 {
     long int result = 0;
-    gbool sign = FALSE;
+    gbool_t sign = FALSE;
 
     while (*string == ' ')
         string++;

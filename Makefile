@@ -1,10 +1,10 @@
 ##
 ## EPITECH PROJECT, 2024
-## B-MUL-200-LYN-2-1-mypaint-maellie.brient-bert
+## my_rpg
 ## File description:
 ## Makefile
 ##
-SRC = ./content/src/my_paint.c \
+SRC = ./content/src/tanker_than_you.c \
 	./engine/core/file/my_getline.c \
 	./engine/core/numbers/my_intlen.c \
 	./engine/core/numbers/my_strtof.c \
@@ -31,48 +31,43 @@ SRC = ./content/src/my_paint.c \
 	./engine/core/string/nb_leading_space.c \
 	./engine/core/string/str.c \
 	./engine/core/string/letters.c \
+	./engine/ressource/texture/settexture.c \
 	./engine/ressource/texture/texture.c \
 	./engine/ressource/texture/gettexture.c \
-	./engine/ressource/texture/settexture.c \
+	./engine/ressource/texture/color.c \
+	./engine/ressource/texture/init_texture.c \
 	./engine/ressource/widgets/canvas/setcanvas.c \
 	./engine/ressource/widgets/canvas/step.c \
 	./engine/ressource/widgets/canvas/unload_canvas.c \
-	./engine/ressource/widgets/canvas/parse_canvas.c \
 	./engine/ressource/widgets/canvas/getcanvas.c \
-	./engine/ressource/widgets/combo/combo.c \
+	./engine/ressource/widgets/canvas/parse_canvas.c \
 	./engine/ressource/widgets/combo/setcombos.c \
 	./engine/ressource/widgets/widget.c \
+	./engine/ressource/widgets/button/parse_button.c \
+	./engine/ressource/widgets/button/setbtn_shape.c \
+	./engine/ressource/widgets/button/setbutton.c \
 	./engine/ressource/load.c \
 	./engine/ressource/scan.c \
 	./engine/system/events/init_events.c \
 	./engine/system/events/register_event.c \
+	./engine/system/events/default/event_button.c \
 	./engine/system/ui/current_canvas.c \
 	./engine/system/ui/map_info.c \
+	./engine/system/ui/get_window.c \
 	./engine/system/window.c \
 	./engine/system/event_manager.c \
 	./engine/system/game_loop.c \
 
 OBJ = ${SRC:.c=.o}
-CFLAGS = -Werror -Wall -Wextra -Iinclude -g3
-LIBS = -lcsfml-graphics -lcsfml-system -lcsfml-window -lm
-NAME = my_rpg
+CFLAGS = -g3 -Wall -Wextra -Iinclude
+NAME = tanker_than_you
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc ${OBJ} -o ${NAME} ${LIBS}
+	gcc ${OBJ} -o ${NAME} -lcsfml-graphics -lcsfml-system -lcsfml-window -lm
 
 clean:
 	rm -f ${OBJ}
-	rm -f sandbox-gmon*
-	rm -f *.gcda
-	rm -f *.gcno
-	rm -f unit_test
-	rm -f gmon.out
-	rm -f *~
-	rm -f .#*
-	rm -f \#*
-	rm -f vgcore.*
-
 fclean: clean
 	rm -f ${NAME}
 re: fclean all

@@ -10,7 +10,7 @@
     #define RESSOURCE_H
     #define MAP_NOT_EXIST "This map is not exist"
     #define FD_NOT_EXIST "No such file or directory\n"
-typedef enum sload_e sload;
+typedef enum sload_e sload_t;
 typedef struct maps_s maps_t;
 
 enum sload_e {
@@ -25,9 +25,10 @@ struct maps_s {
     char path[1000];
     maps_t *next;
 };
+sfColor color(int r, int g, int b, int a);
 maps_t *scan(char *basePath);
 void delete_scan(void);
-status load(char *map_name);
+status_t load(char *map_name);
 
-sload gmap_parse_texture(char *line);
+sload_t gmap_parse_texture(char *line);
 #endif

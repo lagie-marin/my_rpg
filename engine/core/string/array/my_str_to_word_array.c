@@ -28,10 +28,10 @@ static int len_word(const char *str, int i)
     return x - i;
 }
 
-array my_str_to_word_array(const char *str)
+array_t my_str_to_word_array(const char *str)
 {
     int nb_word = word_count(str);
-    array word_array = malloc(sizeof(char *) * (nb_word + 1));
+    array_t word_array = malloc(sizeof(char *) * (nb_word + 1));
     int x = 0;
     int y = 0;
     int i = 0;

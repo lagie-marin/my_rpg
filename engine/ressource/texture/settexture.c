@@ -23,7 +23,7 @@ void settexture_img(texture_t *texture, char *img)
     texture->img = img;
 }
 
-void settexture_size(texture_t *texture, v2i size)
+void settexture_size(texture_t *texture, v2f_t size)
 {
     texture->size = size;
 }

@@ -5,7 +5,6 @@
 ** get.c
 */
 #include "engine/core.h"
-#include "engine/ressource.h"
 #include "engine/types.h"
 #include "engine/widgets/widgets.h"
 #include "engine/window.h"
@@ -25,7 +24,7 @@ char *gettexture_img_by_name(char *name)
     return gettexture_by_name(name)->img;
 }
 
-v2i gettexture_size_by_name(char *name)
+v2f_t gettexture_size_by_name(char *name)
 {
     return gettexture_by_name(name)->size;
 }

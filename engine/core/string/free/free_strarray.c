@@ -6,7 +6,7 @@
 */
 #include "engine/core.h"
 
-int free_strarray(array arr)
+int free_strarray(array_t arr)
 {
     if (arr == NULL)
         return 1;

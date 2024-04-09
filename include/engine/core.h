@@ -24,9 +24,9 @@
     #define RETURN_IF(condition, output) if (condition) return (output)
     #define IS_ON_MAP(s) (s == ON_MAP)
     #define ICON "../../engine/assets/img/grap"
-typedef const char cc;
-typedef enum status_e status;
-typedef char **array;
+typedef const char cc_t;
+typedef enum status_e status_t;
+typedef char **array_t;
 
 enum status_e {
     FAIL,
@@ -34,12 +34,12 @@ enum status_e {
 };
 
 /*file function*/
-ssize_t my_getline(array input, size_t *len, FILE *stream);
+ssize_t my_getline(array_t input, size_t *len, FILE *stream);
 
 /*number function*/
 int my_intlen(int value);
 double my_strtof(char *str);
-long int my_strtol(char *string, array end);
+long int my_strtol(char *string, array_t end);
 
 /*put function*/
 int my_printf(const char *format, ...);
@@ -49,10 +49,10 @@ int my_putstr(const char *str);
 int put_error(char *str);
 
 /*char *function*/
-array my_str_to_word_array(const char *str);
-int str_arraylen(array src);
-int free_strarray(array arr);
-int free_strnarray(array arr, int pos);
+array_t my_str_to_word_array(const char *str);
+int str_arraylen(array_t src);
+int free_strarray(array_t arr);
+int free_strnarray(array_t arr, int pos);
 int my_isspace(char arg);
 char *my_memset(char *str, char ch, int length);
 char *my_strcat(char *dest, char const *src);
@@ -60,7 +60,7 @@ char *my_strchr(char *str, char ch);
 int my_strcmp(char const *s1, char const *s2);
 char *my_strcpy(char *dest, char const *src);
 int my_strlen(const char *str);
-array my_strtok(const char *str, cc delimiters);
+array_t my_strtok(const char *str, cc_t delimiters);
 char *my_strdup(char const *src);
 int my_atoi(char const *str);
 int nb_leading_space(char *str);

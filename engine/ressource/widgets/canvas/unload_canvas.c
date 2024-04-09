@@ -4,21 +4,18 @@
 ** File description:
 ** unload_canvas.c
 */
-#include "../../../../include/engine/core.h"
-#include "../../../../include/engine/widgets/widgets.h"
+#include "engine/core.h"
+#include "engine/widgets/widgets.h"
 
 void unload_canvas(canvas_t *canvas)
 {
+    list_widgets_t **widgets;
+
     if (canvas == NULL)
         return;
-    FREE(canvas->name);
-    unload_widget(canvas->widgets);
-    FREE(canvas);
-}
-
-void unload_all_canvas(canvas_t **canvas)
-{
-    for (int i = 0; canvas[i]; i++)
-        unload_canvas(canvas[i]);
-    FREE(canvas);
+    widgets = canvas->widgets;
+    canvas->visible = FALSE;
+    for (int i = 0; widgets[i]; i++) {
+        unload[widgets[i]->type](widgets[i]);
+    }
 }

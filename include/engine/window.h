@@ -86,10 +86,10 @@ typedef struct game_engine_s game_engine_t;
 
 struct window_infos_s {
     sfRenderWindow *window;
-    ui width;
-    ui height;
-    ui fps;
-    ui bits;
+    ui_t width;
+    ui_t height;
+    ui_t fps;
+    ui_t bits;
 };
 
 struct map_info_s {
@@ -111,7 +111,31 @@ extern game_engine_t *Game_engine;
 void init_map(void);
 map_info_t *get_mapinfo(void);
 void game_loop(void);
-status construct(void);
+status_t construct(void);
 void evt_tickrate(void);
 void window_destroy(void);
+
+/**
+ * @brief Get the window width object
+ * @return ui
+ */
+ui_t get_window_width(void);
+
+/**
+ * @brief Get the window height object
+ * @return ui
+ */
+ui_t get_window_height(void);
+
+/**
+ * @brief Get the window fps object
+ * @return ui
+ */
+ui_t get_window_fps(void);
+
+/**
+ * @brief Get the window bits object
+ * @return ui<
+ */
+ui_t get_window_bits(void);
 #endif

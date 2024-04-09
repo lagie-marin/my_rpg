@@ -6,7 +6,7 @@
 */
 #include "engine/core.h"
 
-int str_arraylen(array src)
+int str_arraylen(array_t src)
 {
     int len = 0;
 

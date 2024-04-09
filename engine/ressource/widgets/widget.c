@@ -6,7 +6,7 @@
 */
 #include "engine/widgets/widgets.h"
 
-void add_widget(list_widgets_t **begin, void *widget, widgets_type type)
+void add_widget(list_widgets_t **begin, void *widget, widgets_type_t type)
 {
     list_widgets_t *new = malloc(sizeof(list_widgets_t));
 
@@ -23,7 +23,7 @@ void add_widget(list_widgets_t **begin, void *widget, widgets_type type)
     *begin = new;
 }
 
-void unload_widget(list_widgets_t *begin)
+void delete_widget(list_widgets_t *begin)
 {
     list_widgets_t *tmp;
 
@@ -31,7 +31,7 @@ void unload_widget(list_widgets_t *begin)
         tmp = begin;
         begin = begin->next;
         if (tmp->type == CANVAS)
-            unload_canvas(tmp->content);
+            delete_canvas(tmp->content);
         FREE(tmp);
     }
 }

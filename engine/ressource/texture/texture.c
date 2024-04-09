@@ -21,10 +21,10 @@ static int get_nb_texture(void)
 
 static sfColor get_rgba(char *str)
 {
-    ui8 r = my_strtol(&str[1], &str);
-    ui8 g = my_strtol(&str[1], &str);
-    ui8 b = my_strtol(&str[1], &str);
-    ui8 a = my_strtol(&str[1], &str);
+    ui8_t r = my_strtol(&str[1], &str);
+    ui8_t g = my_strtol(&str[1], &str);
+    ui8_t b = my_strtol(&str[1], &str);
+    ui8_t a = my_strtol(&str[1], &str);
 
     return (sfColor) {r, g, b, a};
 }
@@ -35,7 +35,7 @@ texture_t *create_texture(char *name)
 
     texture->name = name;
     texture->img = NULL;
-    texture->size = DEF_SIZE;
+    texture->size = (v2f_t) {20, 20};
     texture->tint = DEF_TINT;
     texture->border = DEF_BORDER;
     return texture;
@@ -60,7 +60,8 @@ void unload_textures(void)
     texture_t **textures = get_mapinfo()->textures;
 
     for (int i = 0; textures[i]; i++) {
-        FREE(textures[i]->name);
+        if (i > 3)
+            FREE(textures[i]->name);
         FREE(textures[i]->img);
         FREE(textures[i]);
     }
@@ -68,10 +69,10 @@ void unload_textures(void)
     FREE(get_mapinfo());
 }
 
-sload gmap_parse_texture(char *line)
+sload_t gmap_parse_texture(char *line)
 {
-    array element = my_strtok(&line[8], ';');
-    v2i size = {my_atoi(element[2]), my_atoi(element[3])};
+    array_t element = my_strtok(&line[8], ';');
+    v2f_t size = {my_atoi(element[2]), my_atoi(element[3])};
     texture_t *new = create_texture(element[0]);
 
     settexture_img(new, element[1]);
