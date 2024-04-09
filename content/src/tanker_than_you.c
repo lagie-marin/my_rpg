@@ -1,9 +1,10 @@
 /*
-** EPITECH PROJECT, 2024
-** B-MUL-200-LYN-2-1-mypaint-maellie.brient-bert
+** EPITECH PROJECT, 2023
+** my_rpg
 ** File description:
-** my_paint.c
+** tanker_than_you.c
 */
+
 #include "engine.h"
 
 status construct(void)
@@ -13,7 +14,7 @@ status construct(void)
 
     my_printf("stat: %i\n", stat);
     RETURN_IF(stat == FAIL, FAIL);
-    canvas = getcanvas_name("antoine");
+    canvas = getcanvas_name("header");
     RETURN_IF(canvas == NULL, SUCCESS);
     my_printf("name: %s\n", canvas->name);
     return SUCCESS;
