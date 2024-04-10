@@ -12,7 +12,8 @@
     //Texture
     #define DEF_TINT color(60, 60, 60, 1)
     #define DEF_BORDER color(0, 0, 0, 1)
-    #define UNLOAD_WIDGET(widget, type) unload[type](widget)
+
+typedef enum state_e state_t;
 typedef enum widgets_type_s widgets_type_t;
 typedef enum cursor_s cursor_t;
 typedef enum search_s search_t;
@@ -25,6 +26,12 @@ typedef struct button_s button_t;
 typedef void (*fhovered_t)(button_t *button, sfMouseMoveEvent *mouse);
 typedef void (*fpressed_t)(button_t *button, sfMouseButtonEvent *mouse);
 typedef void (*freleased_t)(button_t *button, sfMouseButtonEvent *mouse);
+
+enum state_e {
+    NORMAL,
+    HOVERED,
+    PRESSED
+};
 
 enum widgets_type_s {
     CANVAS,
@@ -103,6 +110,10 @@ struct combos_s {
 struct button_s {
     char *name;
     gbool_t is_disabled;
+    v2f_t pos;
+    v2f_t size;
+    v2f_t scale;
+    state_t state;
     sfRectangleShape *btn_shape;
     texture_t *normal;
     texture_t *hovered;
@@ -114,6 +125,7 @@ struct button_s {
     freleased_t freleased;
 };
 
+extern void (*load[2])();
 extern void (*unload[2])();
 extern void (*delete[2])();
 
@@ -147,6 +159,7 @@ v2i_t getcanvas_pos_by_name(char *name);
 v2f_t getcanvas_size_by_name(char *name);
 list_widgets_t *getcanvas_widget_by_name(char *name);
 canvas_t *getcanvas_atposition(int x, int y);
+void load_canvas(canvas_t *canvas);
 void unload_canvas(canvas_t *canvas);
 void delete_all_canvas(canvas_t **canvas);
 void delete_canvas(canvas_t *canvas);
@@ -173,7 +186,8 @@ sfColor gettexture_tint_by_name(char *name);
 sfColor gettexture_border_by_name(char *name);
 void unload_textures(void);
 
-int setbtn_shape(button_t *button, char *name_texture);
+void setbtn_shape_by_name_texture(button_t *button, char *name_texture);
+void setbtn_shape_by_texture(button_t *button, texture_t *texture);
 void setbtn_shape_pos(button_t *button, v2f_t pos);
 void setbtn_shape_size(button_t *button, v2f_t size);
 void setbtn_shape_scale(button_t *button, v2f_t scale);

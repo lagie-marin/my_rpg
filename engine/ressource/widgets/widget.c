@@ -30,8 +30,7 @@ void delete_widget(list_widgets_t *begin)
     while (begin != NULL) {
         tmp = begin;
         begin = begin->next;
-        if (tmp->type == CANVAS)
-            delete_canvas(tmp->content);
+        delete[tmp->type](tmp->content);
         FREE(tmp);
     }
 }

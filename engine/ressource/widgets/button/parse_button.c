@@ -18,9 +18,12 @@ sload_t gmap_parse_button(char *line, canvas_t **step, sload_t tl)
     array_t elmt = my_strtok(&line[nb_leading_space(line) + 6], ';');
     button_t *btn = create_button(elmt[0]);
 
-    setbtn_shape_pos(btn, (v2f_t) {my_strtof(elmt[1]), my_strtof(elmt[2])});
-    setbtn_shape_size(btn, (v2f_t) {my_strtof(elmt[3]), my_strtof(elmt[4])});
-    setbtn_shape_scale(btn, (v2f_t) {my_strtof(elmt[5]), my_strtof(elmt[6])});
+    btn->pos = (v2f_t) {my_strtof(elmt[1]), my_strtof(elmt[2])};
+    btn->size = (v2f_t) {my_strtof(elmt[3]), my_strtof(elmt[4])};
+    btn->scale = (v2f_t) {my_strtof(elmt[5]), my_strtof(elmt[6])};
+    setbtn_shape_pos(btn, btn->pos);
+    setbtn_shape_size(btn, btn->size);
+    setbtn_shape_scale(btn, btn->scale);
     btn->is_disabled = str_to_bool(elmt[7]);
     btn->thickness = my_strtof(elmt[8]);
     btn->normal = gettexture_by_name(elmt[9]);
