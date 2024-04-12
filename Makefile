@@ -36,16 +36,20 @@ SRC = ./content/src/tanker_than_you.c \
 	./engine/ressource/texture/gettexture.c \
 	./engine/ressource/texture/color.c \
 	./engine/ressource/texture/init_texture.c \
-	./engine/ressource/widgets/canvas/setcanvas.c \
 	./engine/ressource/widgets/canvas/step.c \
-	./engine/ressource/widgets/canvas/unload_canvas.c \
-	./engine/ressource/widgets/canvas/getcanvas.c \
-	./engine/ressource/widgets/canvas/parse_canvas.c \
+	./engine/ressource/widgets/canvas/parsing_canvas.c \
+	./engine/ressource/widgets/canvas/get_canvas.c \
+	./engine/ressource/widgets/canvas/set_canvas.c \
+	./engine/ressource/widgets/canvas/create_canvas.c \
+	./engine/ressource/widgets/canvas/canvas_utils.c \
 	./engine/ressource/widgets/combo/setcombos.c \
 	./engine/ressource/widgets/widget.c \
 	./engine/ressource/widgets/button/parse_button.c \
 	./engine/ressource/widgets/button/setbtn_shape.c \
 	./engine/ressource/widgets/button/setbutton.c \
+	./engine/ressource/widgets/button/create_button.c \
+	./engine/ressource/widgets/button/button_utils.c \
+	./engine/ressource/widgets/manager.c \
 	./engine/ressource/load.c \
 	./engine/ressource/scan.c \
 	./engine/system/events/init_events.c \
@@ -60,14 +64,19 @@ SRC = ./content/src/tanker_than_you.c \
 
 OBJ = ${SRC:.c=.o}
 CFLAGS = -g3 -Wall -Wextra -Iinclude
-NAME = tanker_than_you
+LIBS = -lcsfml-graphics \
+	-lcsfml-system \
+	-lcsfml-window \
+	-lm
+NAME = my_rpg
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc ${OBJ} -o ${NAME} -lcsfml-graphics -lcsfml-system -lcsfml-window -lm
+	gcc ${OBJ} -o ${NAME} ${LIBS}
 
 clean:
 	rm -f ${OBJ}
+	rm -f vgcore.*
 fclean: clean
 	rm -f ${NAME}
 re: fclean all

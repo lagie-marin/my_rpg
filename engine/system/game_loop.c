@@ -19,5 +19,4 @@ void game_loop(void)
         evt_tickrate();
         sfRenderWindow_display(windows->window);
     }
-    window_destroy();
 }

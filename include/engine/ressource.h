@@ -28,7 +28,7 @@ struct maps_s {
 sfColor color(int r, int g, int b, int a);
 maps_t *scan(char *basePath);
 void delete_scan(void);
-status_t load(char *map_name);
+status_t load_map(char *map_name);
 
 sload_t gmap_parse_texture(char *line);
 #endif

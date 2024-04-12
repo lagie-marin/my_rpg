@@ -113,7 +113,6 @@ map_info_t *get_mapinfo(void);
 void game_loop(void);
 status_t construct(void);
 void evt_tickrate(void);
-void window_destroy(void);
 
 /**
  * @brief Get the window width object

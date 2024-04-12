@@ -8,7 +8,7 @@
 
 void load_button(button_t *button)
 {
-    if (button->disabled == TRUE)
+    if (button->is_disabled == TRUE)
         setbtn_shape_by_name_texture(button, button->disabled->name);
     if (button->state == NORMAL)
         setbtn_shape_by_texture(button, button->normal);

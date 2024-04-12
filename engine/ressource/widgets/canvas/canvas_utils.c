@@ -8,26 +8,30 @@
 
 void load_canvas(canvas_t *canvas)
 {
-    list_widgets_t **widgets;
+    list_widgets_t *widgets;
 
     if (canvas == NULL || canvas->visible == TRUE)
         return;
     widgets = canvas->widgets;
     canvas->visible = TRUE;
-    for (int i = 0; widgets[i]; i++)
-        load[widgets[i]->type](widgets[i]->content);
+    while (widgets != NULL) {
+        load[widgets->type](widgets->content);
+        widgets = widgets->next;
+    }
 }
 
 void unload_canvas(canvas_t *canvas)
 {
-    list_widgets_t **widgets;
+    list_widgets_t *widgets;
 
     if (canvas == NULL)
         return;
     widgets = canvas->widgets;
     canvas->visible = FALSE;
-    for (int i = 0; widgets[i]; i++)
-        unload[widgets[i]->type](widgets[i]->content);
+    while (widgets != NULL) {
+        unload[widgets->type](widgets->content);
+        widgets = widgets->next;
+    }
 }
 
 void delete_canvas(canvas_t *canvas)

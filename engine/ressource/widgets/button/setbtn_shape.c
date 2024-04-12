@@ -39,7 +39,6 @@ void setbtn_shape_by_name_texture(button_t *button, char *name_texture)
     texture_t *texture = gettexture_by_name(name_texture);
 
     applybutton_texture(button, texture);
-    return 0;
 }
 
 void setbtn_shape_by_texture(button_t *button, texture_t *texture)

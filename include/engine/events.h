@@ -10,12 +10,12 @@
 #ifndef EVENTS_H
     #define EVENTS_H
 
-typedef void (*events_fct)();
+typedef void (*events_fct_t)();
 typedef struct events_s events_t;
 
 struct events_s {
     sfEvent event;
-    events_fct event_handler[24]; //nombre maximum d'event possible
+    events_fct_t event_handler[24]; //nombre maximum d'event possible
 };
 
 /**
@@ -28,7 +28,7 @@ void init_events(void);
  * @param evt_type type de l'event à utiliser
  * @param elemtn fonction qui sera appeler
  */
-void register_event(sfEventType evt_type, events_fct elemtn);
+void register_event(sfEventType evt_type, events_fct_t elemtn);
 
 /**
  * @brief permet de gérer les différents event et de dispatcher les

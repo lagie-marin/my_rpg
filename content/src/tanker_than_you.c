@@ -9,7 +9,7 @@
 
 status_t construct(void)
 {
-    status_t stat = load("paint");
+    status_t stat = load_map("paint");
     canvas_t *canvas;
 
     my_printf("stat: %i\n", stat);

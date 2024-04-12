@@ -6,7 +6,7 @@
 */
 #include "engine/events.h"
 
-void register_event(sfEventType evt_type, events_fct fct)
+void register_event(sfEventType evt_type, events_fct_t fct)
 {
     events_t evt;
 

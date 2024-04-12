@@ -186,6 +186,7 @@ sfColor gettexture_tint_by_name(char *name);
 sfColor gettexture_border_by_name(char *name);
 void unload_textures(void);
 
+button_t *create_button(char *name);
 void setbtn_shape_by_name_texture(button_t *button, char *name_texture);
 void setbtn_shape_by_texture(button_t *button, texture_t *texture);
 void setbtn_shape_pos(button_t *button, v2f_t pos);
@@ -196,6 +197,7 @@ void setbutton_thickness(button_t *button, float thickness);
 void setbutton_event_hovered(button_t *button, fhovered_t hovered);
 void setbutton_event_pressed(button_t *button, fpressed_t pressed);
 void setbutton_event_released(button_t *button, freleased_t released);
+void load_button(button_t *button);
 void unload_button(button_t *button);
 void delete_button(button_t *button);
 #endif

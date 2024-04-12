@@ -58,7 +58,7 @@ static canvas_t **stepac(void)
     return step;
 }
 
-status_t load(char *name)
+status_t load_map(char *name)
 {
     FILE *file;
     maps_t *current_maps = get_current_map(name);
