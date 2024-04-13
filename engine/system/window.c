@@ -49,8 +49,8 @@ int main(void)
     pre_init_windows();
     if (construct() == FAIL)
         return 1;
-    // init_windows();
-    // game_loop();
+    init_windows();
+    game_loop();
     window_destroy();
     return 0;
 }
