@@ -34,6 +34,8 @@ static sload_t gmap_parser(char *line, char *name, canvas_t ***step, sload_t s)
         return ON_MAP;
     if (is_widget(line, "[CANVAS;", IS_ON_MAP(s)))
         return gmap_parse_canvas(line, step, s);
+    if (is_widget(line, "BUTTON", TRUE))
+        return gmap_parse_button(line, *step, s);
     if (is_widget(line, "[END]", TRUE)) {
         *step = rm_step(*step);
         return OUT_MAP;
@@ -58,6 +60,18 @@ static canvas_t **stepac(void)
     return step;
 }
 
+static FILE *check_validation_info(char *name, maps_t *current_maps)
+{
+    FILE *file;
+
+    if (current_maps == NULL && put_error(name) && put_error(MAP_NOT_EXIST))
+        return NULL;
+    file = fopen(current_maps->path, "r");
+    if (file == NULL && put_error(FD_NOT_EXIST))
+        return NULL;
+    return file;
+}
+
 status_t load_map(char *name)
 {
     FILE *file;
@@ -68,9 +82,9 @@ status_t load_map(char *name)
     canvas_t **step = stepac();
     sload_t s = NONE;
 
-    RETURN_IF(current_maps == NULL && put_error(MAP_NOT_EXIST), FAIL);
-    file = fopen(current_maps->path, "r");
-    RETURN_IF(file == NULL && put_error(FD_NOT_EXIST), FAIL);
+    file = check_validation_info(name, current_maps);
+    if (file == NULL)
+        return FAIL;
     read = my_getline(&line, &len, file);
     while (read != -1 && my_strcmp(line, "[END-MAP]") && s != ERROR) {
         s = gmap_parser(line, name, &step, s);

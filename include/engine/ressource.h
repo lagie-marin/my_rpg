@@ -8,7 +8,7 @@
 
 #ifndef RESSOURCE_H
     #define RESSOURCE_H
-    #define MAP_NOT_EXIST "This map is not exist"
+    #define MAP_NOT_EXIST " map is not exist\n"
     #define FD_NOT_EXIST "No such file or directory\n"
 typedef enum sload_e sload_t;
 typedef struct maps_s maps_t;

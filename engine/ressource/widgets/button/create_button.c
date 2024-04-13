@@ -19,12 +19,12 @@ button_t *create_button(char *name)
     button->scale = (v2f_t) {1, 1};
     button->state = NORMAL;
     button->btn_shape = sfRectangleShape_create();
+    button->thickness = 2.f;
     setbtn_shape_by_name_texture(button, "normal");
     button->normal = Game_engine->map_info->textures[0];
     button->hovered = Game_engine->map_info->textures[1];
     button->pressed = Game_engine->map_info->textures[2];
     button->disabled = Game_engine->map_info->textures[3];
-    button->thickness = 2.f;
     button->fhovered = &default_hovered;
     button->fpressed = &default_pressed;
     button->freleased = &default_released;

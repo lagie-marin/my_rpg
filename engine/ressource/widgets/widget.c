@@ -14,6 +14,7 @@ void add_widget(list_widgets_t **begin, void *widget, widgets_type_t type)
         write(2, "Out of memory\n", 15);
         return;
     }
+    my_printf("list: %d\n", begin);
     new->type = type;
     new->content = widget;
     new->next = *begin;

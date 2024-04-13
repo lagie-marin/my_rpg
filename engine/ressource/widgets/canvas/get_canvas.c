@@ -51,26 +51,24 @@ static canvas_t *search_canvas(search_t srch, char *prop, list_widgets_t *list)
     return NULL;
 }
 
-static canvas_t *getcanvas_prop(void *prop, search_t srch, gbool_t use_preload)
+static canvas_t *getcanvas_prop(void *prop, search_t srch)
 {
-    canvas_t **actual = get_mapinfo()->canvas;
+    canvas_t **canvas = get_mapinfo()->canvas;
     canvas_t *current;
 
-    for (int i = 0; i <= 1; i++) {
-        for (int x = 0; actual != NULL && actual[x]; x++) {
-            RETURN_IF(is_equal(srch, actual[x], prop), actual[x]);
-            current = search_canvas(NAME, prop, actual[x]->widgets);
-            RETURN_IF(current != NULL, current);
-        }
-        if (use_preload)
-            actual = get_mapinfo()->preloaded;
+    for (int x = 0; canvas != NULL && canvas[x]; x++) {
+        if (is_equal(srch, canvas[x], prop))
+            return canvas[x];
+        current = search_canvas(NAME, prop, canvas[x]->widgets);
+        if (current != NULL)
+            return current;
     }
     return NULL;
 }
 
 canvas_t *getcanvas_name(char *name)
 {
-    return getcanvas_prop(name, NAME, TRUE);
+    return getcanvas_prop(name, NAME);
 }
 
 v2i_t getcanvas_pos_by_name(char *name)
@@ -107,5 +105,5 @@ canvas_t *getcanvas_atposition(int x, int y)
 
     if (is_equal(POS_MV, actual, (void *) &pos))
         return actual;
-    return getcanvas_prop((void *) &pos, POS_MV, FALSE);
+    return getcanvas_prop((void *) &pos, POS_MV);
 }

@@ -96,7 +96,6 @@ struct map_info_s {
     maps_t *maps;
     texture_t **textures;
     canvas_t **canvas;
-    canvas_t **preloaded;
     canvas_t *actual;
 };
 
@@ -112,7 +111,7 @@ void init_map(void);
 map_info_t *get_mapinfo(void);
 void game_loop(void);
 status_t construct(void);
-void evt_tickrate(void);
+void event_tick(void);
 
 /**
  * @brief Get the window width object
@@ -134,7 +133,12 @@ ui_t get_window_fps(void);
 
 /**
  * @brief Get the window bits object
- * @return ui<
+ * @return ui
  */
 ui_t get_window_bits(void);
+
+/**
+ * @brief Permet de mettre à jour la fenetre
+ */
+void update_window(void);
 #endif

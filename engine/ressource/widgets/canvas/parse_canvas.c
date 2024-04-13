@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2024
 ** B-MUL-200-LYN-2-1-mypaint-maellie.brient-bert
 ** File description:
-** parsing_canvas.c
+** parse_canvas.c
 */
 #include "engine/widgets/widgets.h"
 #include "engine/types.h"
 #include "engine/core.h"
 #include "engine/window.h"
 
-static void add_canvas(canvas_t *new_canvas, gbool_t preloaded)
+static void add_canvas(canvas_t *new_canvas)
 {
     canvas_t **canvas = get_mapinfo()->canvas;
     canvas_t **new = malloc((len_step(canvas) + 2) * sizeof(canvas_t));
@@ -20,10 +20,7 @@ static void add_canvas(canvas_t *new_canvas, gbool_t preloaded)
     FREE(canvas);
     new[i] = new_canvas;
     new[i + 1] = NULL;
-    if (preloaded == FALSE)
-        get_mapinfo()->canvas = new;
-    else
-        get_mapinfo()->preloaded = new;
+    get_mapinfo()->canvas = new;
 }
 
 static void add_canvas_on_map(canvas_t *new_canvas, canvas_t **step)
@@ -31,7 +28,7 @@ static void add_canvas_on_map(canvas_t *new_canvas, canvas_t **step)
     int len = len_step(step);
 
     if (len == 0)
-        add_canvas(new_canvas, FALSE);
+        add_canvas(new_canvas);
     else
         add_widget(&step[0]->widgets, new_canvas, CANVAS);
 }

@@ -186,6 +186,7 @@ sfColor gettexture_tint_by_name(char *name);
 sfColor gettexture_border_by_name(char *name);
 void unload_textures(void);
 
+sload_t gmap_parse_button(char *line, canvas_t **step, sload_t tl);
 button_t *create_button(char *name);
 void setbtn_shape_by_name_texture(button_t *button, char *name_texture);
 void setbtn_shape_by_texture(button_t *button, texture_t *texture);
@@ -200,4 +201,5 @@ void setbutton_event_released(button_t *button, freleased_t released);
 void load_button(button_t *button);
 void unload_button(button_t *button);
 void delete_button(button_t *button);
+void draw_button(button_t *button);
 #endif

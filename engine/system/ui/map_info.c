@@ -23,7 +23,5 @@ void init_map(void)
     get_mapinfo()->textures[0] = NULL;
     get_mapinfo()->canvas = malloc(sizeof(canvas_t));
     get_mapinfo()->canvas[0] = NULL;
-    get_mapinfo()->preloaded = malloc(sizeof(canvas_t));
-    get_mapinfo()->preloaded[0] = NULL;
     get_mapinfo()->actual = NULL;
 }

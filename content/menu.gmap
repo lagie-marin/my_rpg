@@ -3,7 +3,7 @@ TEXTURE fhovered;none;200;50;(226,194,177,1);(0,0,0,1)
 TEXTURE fpressed;none;200;50;(195,106,45,1);(0,0,0,1)
 TEXTURE fdisabled;none;200;50;(244,244,244,1);(0,0,0,1)
 
-[paint]
+[menu]
     [CANVAS;header;0;0;1920;50;]
         BUTTON file;200;50;200;50;1;1;false;1;normal;hovered;pressed;disabled
         BUTTON edition;400;50;200;1;1;false;1;normal;hovered;pressed;disabled

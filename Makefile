@@ -37,7 +37,7 @@ SRC = ./content/src/tanker_than_you.c \
 	./engine/ressource/texture/color.c \
 	./engine/ressource/texture/init_texture.c \
 	./engine/ressource/widgets/canvas/step.c \
-	./engine/ressource/widgets/canvas/parsing_canvas.c \
+	./engine/ressource/widgets/canvas/parse_canvas.c \
 	./engine/ressource/widgets/canvas/get_canvas.c \
 	./engine/ressource/widgets/canvas/set_canvas.c \
 	./engine/ressource/widgets/canvas/create_canvas.c \
@@ -61,6 +61,7 @@ SRC = ./content/src/tanker_than_you.c \
 	./engine/system/window.c \
 	./engine/system/event_manager.c \
 	./engine/system/game_loop.c \
+	./engine/system/update_window.c \
 
 OBJ = ${SRC:.c=.o}
 CFLAGS = -g3 -Wall -Wextra -Iinclude

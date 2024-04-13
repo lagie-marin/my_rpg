@@ -4,6 +4,7 @@
 ** File description:
 ** button_utils.c
 */
+#include "engine/window.h"
 #include "engine/widgets/widgets.h"
 
 void load_button(button_t *button)
@@ -16,6 +17,13 @@ void load_button(button_t *button)
         setbtn_shape_by_texture(button, button->hovered);
     if (button->state == PRESSED)
         setbtn_shape_by_texture(button, button->pressed);
+}
+
+void draw_button(button_t *button)
+{
+    sfRenderWindow *win = Game_engine->windows->window;
+
+    sfRenderWindow_drawRectangleShape(win, button->btn_shape, NULL);
 }
 
 void unload_button(button_t *button)

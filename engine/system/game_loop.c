@@ -16,7 +16,8 @@ void game_loop(void)
     while (sfRenderWindow_isOpen(windows->window)) {
         sfRenderWindow_clear(windows->window, sfWhite);
         event_manager();
-        evt_tickrate();
+        update_window();
+        event_tick();
         sfRenderWindow_display(windows->window);
     }
 }

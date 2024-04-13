@@ -9,7 +9,7 @@
 
 status_t construct(void)
 {
-    status_t stat = load_map("paint");
+    status_t stat = load_map("menu");
     canvas_t *canvas;
 
     my_printf("stat: %i\n", stat);
@@ -20,18 +20,7 @@ status_t construct(void)
     return SUCCESS;
 }
 
-void paint(sfRenderWindow *window, sfRectangleShape *brush)
-{
-    sfVector2i mouse_pos;
-
-    if (sfMouse_isButtonPressed(sfMouseLeft)) {
-        mouse_pos = sfMouse_getPositionRenderWindow(window);
-        sfRectangleShape_setPosition(brush, (v2f_t){mouse_pos.x, mouse_pos.y});
-        sfRenderWindow_drawRectangleShape(window, brush, NULL);
-    }
-}
-
-void evt_tickrate(void)
+void event_tick(void)
 {
     return;
 }
