@@ -17,7 +17,10 @@ map_info_t *get_mapinfo(void)
 
 void init_map(void)
 {
+
     Game_engine->map_info = malloc(sizeof(map_info_t));
+    my_printf("Init map\n");
+    my_printf("Scanning map\n");
     get_mapinfo()->maps = scan("./content");
     get_mapinfo()->textures = malloc(sizeof(texture_t *));
     get_mapinfo()->textures[0] = NULL;

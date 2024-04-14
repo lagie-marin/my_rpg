@@ -19,6 +19,7 @@ static void none_evt(void)
 
 void init_events(void)
 {
+    my_printf("Init events\n");
     Game_engine->events.event_handler[sfEvtClosed] = &default_evt_closed;
     for (int i = 1; i <= 22; i++)
         Game_engine->events.event_handler[i] = &none_evt;

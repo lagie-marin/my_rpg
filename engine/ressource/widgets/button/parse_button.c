@@ -31,7 +31,6 @@ sload_t gmap_parse_button(char *line, canvas_t **step, sload_t tl)
     btn->pressed = gettexture_by_name(elmt[11]);
     btn->disabled = gettexture_by_name(elmt[12]);
     free_strnarray(elmt, 1);
-    my_printf("button widgets: %d\n", step[0]->widgets);
     add_widget(&step[0]->widgets, btn, BUTTON);
     return tl;
 }

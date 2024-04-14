@@ -51,6 +51,7 @@ static void set_default_disabled(void)
 
 void init_texture(void)
 {
+    my_printf("Init default textures\n");
     set_default_normal();
     set_default_hovered();
     set_default_pressed();

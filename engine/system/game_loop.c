@@ -12,6 +12,7 @@ void game_loop(void)
 {
     window_infos_t *windows = Game_engine->windows;
 
+    my_printf("Launch the application\n");
     sfRenderWindow_setFramerateLimit(windows->window, windows->fps);
     while (sfRenderWindow_isOpen(windows->window)) {
         sfRenderWindow_clear(windows->window, sfWhite);
