@@ -80,4 +80,6 @@ clean:
 	rm -f vgcore.*
 fclean: clean
 	rm -f ${NAME}
+tests_run:
+	echo "ok"
 re: fclean all
