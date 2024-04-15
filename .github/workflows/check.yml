@@ -106,7 +106,7 @@ jobs:
               run: sudo apt-get update && sudo apt-get install libcsfml-dev
             - name: Compile tests binaries
               run: make tests_run
-                timeout-minutes: 2
+              timeout-minutes: 2
     push_to_mirror:
         runs-on: ubuntu-latest
         needs:  run_tests
