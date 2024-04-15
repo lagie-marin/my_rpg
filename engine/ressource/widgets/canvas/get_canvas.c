@@ -19,14 +19,16 @@ static gbool_t is_equal(search_t search, canvas_t *canvas, void *prop)
         return TRUE;
     if (search == POS_MV) {
         pos = *(v2i_t *) prop;
-        RETURN_IF(pos.x >= canvas->pos.x &&
+        if (pos.x >= canvas->pos.x &&
             pos.x <= canvas->pos.x + canvas->size.x &&
             pos.y >= canvas->pos.y &&
-            pos.y <= canvas->pos.y + canvas->size.y, TRUE);
+            pos.y <= canvas->pos.y + canvas->size.y)
+            return TRUE;
     }
     if (search == POS) {
         pos = *(v2i_t *) prop;
-        RETURN_IF(canvas->pos.x == pos.x && canvas->pos.y == pos.y, TRUE);
+        if (canvas->pos.x == pos.x && canvas->pos.y == pos.y)
+            return TRUE;
     }
     return FALSE;
 }

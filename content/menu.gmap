@@ -1,17 +1,16 @@
-TEXTURE fnormal;none;200;50;(234,220,166,1);(0,0,0,1)
-TEXTURE fhovered;none;200;50;(226,194,177,1);(0,0,0,1)
-TEXTURE fpressed;none;200;50;(195,106,45,1);(0,0,0,1)
-TEXTURE fdisabled;none;200;50;(244,244,244,1);(0,0,0,1)
+TEXTURE fnormal;none;200;50;(165,42,42,255);(0,0,0,255)
 
 [menu]
     [CANVAS;header;0;0;1920;50;]
-        BUTTON file;200;50;200;50;1;1;false;1;normal;hovered;pressed;disabled
-        BUTTON edition;400;50;200;1;1;false;1;normal;hovered;pressed;disabled
-        BUTTON help;600;50;200;50;1;1;false;1;normal;hovered;pressed;disabled
+        BUTTON file;0;0;200;50;1;1;false;1;fnormal;hovered;pressed;disabled
+        BUTTON file2;0;50;200;150;1;1;false;1;normal;hovered;pressed;disabled
+        BUTTON edition;200;0;200;200;1;1;false;1;normal;hovered;pressed;disabled
+        BUTTON help;400;0;200;50;1;1;false;1;normal;hovered;pressed;disabled
     [END]
 [END-MAP]
-
 [CANVAS;name;pos_x;pos_y;size_x;size_y;bg_color]
 TEXTURE name;img;size_x;size_y;tint(rgba);border(rgba);
 COMBO name;pos_x;pos_y;size_x;size_y;(option);selected_option;diplay_arrow;normal;hovered;pressed;disabled
 BUTTON name;pos_x;pos_y;size_x;size_y;scale_x;scale_y;disabled;thickness;normal;hovered;pressed;disabled
+EDIT-AREA name;pos_x;pos_y;size_x;size_y;scale_x;scale_y;writable;normal;hovered;pressed;disabled
+SLIDER name;pos_x;pos_y;size_x;size_y;scale_x;scale_y;locked;slider_bar_color;slider_handle_color;normal_bar;hovered_bar;disabled_bar;normal_thumb;hovered_thumb;disabled_thumb

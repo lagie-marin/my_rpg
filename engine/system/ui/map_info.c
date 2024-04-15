@@ -17,7 +17,6 @@ map_info_t *get_mapinfo(void)
 
 void init_map(void)
 {
-
     Game_engine->map_info = malloc(sizeof(map_info_t));
     my_printf("Init map\n");
     my_printf("Scanning map\n");
