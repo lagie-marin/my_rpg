@@ -8,4 +8,5 @@
 
 button_t *getbutton_atposition(int x, int y)
 {
+    return NULL;
 }
