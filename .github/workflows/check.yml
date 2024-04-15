@@ -1,5 +1,4 @@
-name: chocolatine
-run-name: ${{github.actor}} chocolatine test run
+name: check rpg
 on:
     push:
         branches-ignore:
