@@ -94,7 +94,6 @@ jobs:
 
     run_tests:
         runs-on: ubuntu-latest
-        container: epitechcontent/epitest-docker:latest
         needs:  check_program_compilation
         steps:
             - name: Checkout GH repo
