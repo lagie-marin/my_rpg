@@ -52,19 +52,19 @@ void default_released(button_t *button, sfMouseButtonEvent *mouse);
 void evt_closed(sfEvent event);
 
 /**
- * @brief est appeler quand le boutton de la souris est pressé
+ * @brief est appeler quand le boutton de la souris est presse
  * @param event définie le système de l'event et ces paramètre
  */
 void evt_mouse_btn_pressed(sfEvent event);
 
 /**
- * @brief est appeler quand le bouton de la souris est relaché
+ * @brief est appeler quand le bouton de la souris est relache
  * @param event définie le système de l'event et ces paramètre
  */
 void evt_mouse_btn_released(sfEvent event);
 
 /**
- * @brief est appeler quand la souris est déplacé
+ * @brief est appeler quand la souris est déplacE
  * @param event définie le système de l'event et ces paramètre
  */
 void evt_mouse_moved(sfEvent event);
