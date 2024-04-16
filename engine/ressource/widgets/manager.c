@@ -6,6 +6,8 @@
 */
 #include "engine/widgets/widgets.h"
 
+
+
 void (*load[2])() = {
     &load_canvas,
     &load_button

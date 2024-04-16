@@ -26,6 +26,9 @@ typedef struct button_s button_t;
 typedef void (*fhovered_t)(button_t *button, sfMouseMoveEvent *mouse);
 typedef void (*fpressed_t)(button_t *button, sfMouseButtonEvent *mouse);
 typedef void (*freleased_t)(button_t *button, sfMouseButtonEvent *mouse);
+typedef void (*load_t)();
+typedef void (*unload_t)();
+typedef void (*delete_t)();
 
 enum state_e {
     NORMAL,
