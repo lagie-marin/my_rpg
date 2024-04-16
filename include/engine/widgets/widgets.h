@@ -128,10 +128,6 @@ struct button_s {
     freleased_t freleased;
 };
 
-extern void (*load[2])();
-extern void (*unload[2])();
-extern void (*delete[2])();
-
 /**
  * @brief Permet d'ajouter un widget dans l'interface
  * @param begin la liste du widget qui est contenue dans le canvas
@@ -205,4 +201,8 @@ void load_button(button_t *button);
 void unload_button(button_t *button);
 void delete_button(button_t *button);
 void draw_button(button_t *button);
+
+load_t load(widgets_type_t type);
+unload_t unload(widgets_type_t type);
+delete_t delete(widgets_type_t type);
 #endif

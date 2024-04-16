@@ -4,7 +4,7 @@
 ## File description:
 ## Makefile
 ##
-SRC = ./content/src/tanker_than_you.c \
+SRC = ./content/src/my_rpg.c \
 	./engine/core/file/my_getline.c \
 	./engine/core/numbers/my_intlen.c \
 	./engine/core/numbers/my_strtof.c \

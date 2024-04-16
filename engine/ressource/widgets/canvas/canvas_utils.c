@@ -15,7 +15,7 @@ void load_canvas(canvas_t *canvas)
     widgets = canvas->widgets;
     canvas->visible = TRUE;
     while (widgets != NULL) {
-        load[widgets->type](widgets->content);
+        load(widgets->type)(widgets->content);
         widgets = widgets->next;
     }
 }
@@ -29,7 +29,7 @@ void unload_canvas(canvas_t *canvas)
     widgets = canvas->widgets;
     canvas->visible = FALSE;
     while (widgets != NULL) {
-        unload[widgets->type](widgets->content);
+        unload(widgets->type)(widgets->content);
         widgets = widgets->next;
     }
 }

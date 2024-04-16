@@ -30,7 +30,7 @@ void delete_widget(list_widgets_t *begin)
     while (begin != NULL) {
         tmp = begin;
         begin = begin->next;
-        delete[tmp->type](tmp->content);
+        delete(tmp->type)(tmp->content);
         FREE(tmp);
     }
 }

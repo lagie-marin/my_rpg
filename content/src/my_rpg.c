@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
-** tanker_than_you.c
+** my_rpg.c
 */
 
 #include "engine.h"
