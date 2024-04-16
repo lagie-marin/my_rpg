@@ -102,7 +102,6 @@ struct map_info_s {
 struct game_engine_s {
     window_infos_t *windows;
     map_info_t *map_info;
-    events_t events;
 };
 
 extern game_engine_t *Game_engine;

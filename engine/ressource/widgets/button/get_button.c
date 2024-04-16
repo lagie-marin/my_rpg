@@ -6,7 +6,7 @@
 */
 #include "engine/widgets/widgets.h"
 
-button_t *getbutton_atposition(int x, int y)
+button_t *getbutton_atposition(void)
 {
     return NULL;
 }

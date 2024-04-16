@@ -47,7 +47,6 @@ static void window_destroy(void)
 int main(void)
 {
     Game_engine = malloc(sizeof(game_engine_t));
-    init_events();
     init_map();
     init_texture();
     preload_windows();

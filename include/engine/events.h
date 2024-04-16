@@ -11,24 +11,12 @@
     #define EVENTS_H
 
 typedef void (*events_fct_t)();
-typedef struct events_s events_t;
-
-struct events_s {
-    sfEvent event;
-    events_fct_t event_handler[24]; //nombre maximum d'event possible
-};
 
 /**
  * @brief permet d'initialiser les events utilisé dans l'engine
+ * @param events_fct_t return array of function
  */
-void init_events(void);
-
-/**
- * @brief permet d'enregistrer les events que l'utilisateur veux utiliser
- * @param evt_type type de l'event à utiliser
- * @param elemtn fonction qui sera appeler
- */
-void register_event(sfEventType evt_type, events_fct_t elemtn);
+events_fct_t *get_events(void);
 
 /**
  * @brief permet de gérer les différents event et de dispatcher les
@@ -57,4 +45,27 @@ void default_pressed(button_t *button, sfMouseButtonEvent *mouse);
  */
 void default_released(button_t *button, sfMouseButtonEvent *mouse);
 
+/**
+ * @brief est appeler pour fermer la fenetre
+ * @param event définie le système de l'event et ces paramètre
+ */
+void evt_closed(sfEvent event);
+
+/**
+ * @brief est appeler quand le boutton de la souris est pressé
+ * @param event définie le système de l'event et ces paramètre
+ */
+void evt_mouse_btn_pressed(sfEvent event);
+
+/**
+ * @brief est appeler quand le bouton de la souris est relaché
+ * @param event définie le système de l'event et ces paramètre
+ */
+void evt_mouse_btn_released(sfEvent event);
+
+/**
+ * @brief est appeler quand la souris est déplacé
+ * @param event définie le système de l'event et ces paramètre
+ */
+void evt_mouse_moved(sfEvent event);
 #endif
