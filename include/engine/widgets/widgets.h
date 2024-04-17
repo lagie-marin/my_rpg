@@ -23,12 +23,13 @@ typedef struct texture_s texture_t;
 typedef struct canvas_s canvas_t;
 typedef struct combos_s combos_t;
 typedef struct button_s button_t;
-typedef void (*fhovered_t)(button_t *button, sfMouseMoveEvent *mouse);
-typedef void (*fpressed_t)(button_t *button, sfMouseButtonEvent *mouse);
-typedef void (*freleased_t)(button_t *button, sfMouseButtonEvent *mouse);
+typedef void (*fhovered_t)(button_t *button, sfMouseMoveEvent mouse);
+typedef void (*fpressed_t)(button_t *button, sfMouseButtonEvent mouse);
+typedef void (*freleased_t)(button_t *button, sfMouseButtonEvent mouse);
 typedef void (*load_t)();
 typedef void (*unload_t)();
 typedef void (*delete_t)();
+typedef gbool_t (*widgets_t)();
 
 enum state_e {
     NORMAL,
@@ -157,7 +158,7 @@ canvas_t *getcanvas_name(char *name);
 v2i_t getcanvas_pos_by_name(char *name);
 v2f_t getcanvas_size_by_name(char *name);
 list_widgets_t *getcanvas_widget_by_name(char *name);
-canvas_t *getcanvas_atposition(int x, int y);
+gbool_t atposition_contain_canvas(int x, int y, canvas_t *canvas);
 void load_canvas(canvas_t *canvas);
 void unload_canvas(canvas_t *canvas);
 void delete_all_canvas(canvas_t **canvas);
@@ -197,6 +198,7 @@ void setbutton_thickness(button_t *button, float thickness);
 void setbutton_event_hovered(button_t *button, fhovered_t hovered);
 void setbutton_event_pressed(button_t *button, fpressed_t pressed);
 void setbutton_event_released(button_t *button, freleased_t released);
+gbool_t atposition_contain_button(int x, int y, button_t *button);
 void load_button(button_t *button);
 void unload_button(button_t *button);
 void delete_button(button_t *button);
@@ -205,4 +207,6 @@ void draw_button(button_t *button);
 load_t load(widgets_type_t type);
 unload_t unload(widgets_type_t type);
 delete_t delete(widgets_type_t type);
+
+list_widgets_t *at_coordinate(int x, int y);
 #endif

@@ -9,5 +9,6 @@
 
 void evt_mouse_btn_pressed(sfEvent event)
 {
+    (void)event;
     return;
 }

@@ -8,26 +8,38 @@
 #include "engine/widgets/widgets.h"
 #include "engine/color.h"
 
-void default_hovered(button_t *button, sfMouseMoveEvent *mouse)
+void default_hovered(button_t *button, sfMouseMoveEvent mouse)
 {
-    if (mouse == NULL)
-        return;
+    sfColor tint = button->hovered->tint;
+
+    (void)mouse;
     if (button->is_disabled == FALSE)
-        sfRectangleShape_setFillColor(button->btn_shape, BEIGE);
+        sfRectangleShape_setFillColor(button->btn_shape, tint);
 }
 
-void default_pressed(button_t *button, sfMouseButtonEvent *mouse)
+void default_unhovered(button_t *button, sfMouseMoveEvent mouse)
 {
-    if (mouse == NULL)
-        return;
+    sfColor tint = button->normal->tint;
+
+    (void)mouse;
     if (button->is_disabled == FALSE)
-        sfRectangleShape_setFillColor(button->btn_shape, GOLD);
+        sfRectangleShape_setFillColor(button->btn_shape, tint);
 }
 
-void default_released(button_t *button, sfMouseButtonEvent *mouse)
+void default_pressed(button_t *button, sfMouseButtonEvent mouse)
 {
-    if (mouse == NULL)
-        return;
+    sfColor tint = button->pressed->tint;
+
+    (void)mouse;
     if (button->is_disabled == FALSE)
-        sfRectangleShape_setFillColor(button->btn_shape, GREY);
+        sfRectangleShape_setFillColor(button->btn_shape, tint);
+}
+
+void default_released(button_t *button, sfMouseButtonEvent mouse)
+{
+    sfColor tint = button->hovered->tint;
+
+    (void)mouse;
+    if (button->is_disabled == FALSE)
+        sfRectangleShape_setFillColor(button->btn_shape, tint);
 }

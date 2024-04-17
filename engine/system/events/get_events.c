@@ -9,7 +9,22 @@
 
 static void none_evt(sfEvent event)
 {
+    (void)event;
     return;
+}
+
+events_fct_t *get_events_move(void)
+{
+    static events_fct_t event_move_handler[2];
+    static gbool_t is_init = FALSE;
+
+    if (is_init == TRUE)
+        return event_move_handler;
+    my_printf("Init events move\n");
+    event_move_handler[0] = &default_hovered;
+    event_move_handler[1] = &default_unhovered;
+    is_init = TRUE;
+    return event_move_handler;
 }
 
 events_fct_t *get_events(void)

@@ -9,5 +9,6 @@
 
 void evt_closed(sfEvent event)
 {
+    (void)event;
     sfRenderWindow_close(Game_engine->windows->window);
 }

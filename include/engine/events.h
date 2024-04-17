@@ -29,21 +29,28 @@ void event_manager(void);
  * @param button le bouton actuel où passe la souris
  * @param mouse event de la souris qui bouge
  */
-void default_hovered(button_t *button, sfMouseMoveEvent *mouse);
+void default_hovered(button_t *button, sfMouseMoveEvent mouse);
+
+/**
+ * @brief event par default quand la souris n'est plus au dessus d'un bouton
+ * @param button le bouton actuel où passe la souris
+ * @param mouse event de la souris qui bouge
+ */
+void default_unhovered(button_t *button, sfMouseMoveEvent mouse);
 
 /**
  * @brief event par default quand la souris est presser sur le bouton
  * @param button le bouton actuel où passe la souris
  * @param mouse event du bouton de la souris
  */
-void default_pressed(button_t *button, sfMouseButtonEvent *mouse);
+void default_pressed(button_t *button, sfMouseButtonEvent mouse);
 
 /**
  * @brief event par default quand la souris est relacher sur le bouton
  * @param button le bouton actuel où passe la souris
  * @param mouse event du bouton de la souris
  */
-void default_released(button_t *button, sfMouseButtonEvent *mouse);
+void default_released(button_t *button, sfMouseButtonEvent mouse);
 
 /**
  * @brief est appeler pour fermer la fenetre
@@ -68,4 +75,11 @@ void evt_mouse_btn_released(sfEvent event);
  * @param event définie le système de l'event et ces paramètre
  */
 void evt_mouse_moved(sfEvent event);
+
+/**
+ * @brief Get the events move object
+ * 
+ * @return events_fct_t* 
+ */
+events_fct_t *get_events_move(void);
 #endif

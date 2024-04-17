@@ -31,6 +31,7 @@ SRC = ./content/src/my_rpg.c \
 	./engine/core/string/nb_leading_space.c \
 	./engine/core/string/str.c \
 	./engine/core/string/letters.c \
+	./engine/core/coord/at_coordinate.c \
 	./engine/ressource/texture/settexture.c \
 	./engine/ressource/texture/texture.c \
 	./engine/ressource/texture/gettexture.c \

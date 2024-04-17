@@ -100,12 +100,12 @@ list_widgets_t *getcanvas_widget_by_name(char *name)
     return canvas->widgets;
 }
 
-canvas_t *getcanvas_atposition(int x, int y)
+gbool_t atposition_contain_canvas(int x, int y, canvas_t *canvas)
 {
-    canvas_t *actual = get_mapinfo()->actual;
-    v2i_t pos = {x, y};
-
-    if (is_equal(POS_MV, actual, (void *) &pos))
-        return actual;
-    return getcanvas_prop((void *) &pos, POS_MV);
+    if (canvas == NULL)
+        return FALSE;
+    if (x >= canvas->pos.x && x <= canvas->pos.x + canvas->size.x &&
+        y >= canvas->pos.y && y <= canvas->pos.y + canvas->size.y)
+        return TRUE;
+    return FALSE;
 }

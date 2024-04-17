@@ -12,7 +12,13 @@
 
 void setcurrent_canvas(int x, int y)
 {
-    get_mapinfo()->actual = getcanvas_atposition(x, y);
+    canvas_t **canvas = get_mapinfo()->canvas;
+
+    for (int i = 0; canvas[i]; i++)
+        if (atposition_contain_canvas(x, y, canvas[i])) {
+            get_mapinfo()->actual = canvas[i];
+            return;
+        }
 }
 
 canvas_t *getcurrent_canvas(void)
