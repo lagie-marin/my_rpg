@@ -43,7 +43,7 @@ jobs:
               run: |
                 echo "Running make"
                 if [ -f Makefile ]; then
-                    make
+                    make -j
                     error=false
                     IFS=',' read -ra ADDR <<< "${{ env.EXECUTABLES }}"
                     for file in "${ADDR[@]}"; do
@@ -79,7 +79,7 @@ jobs:
               run: sudo apt-get update && sudo apt-get install libcsfml-dev
             - name: Compile project
               run: |
-                make
+                make -j
                 make clean
               timeout-minutes: 2
             - name: Check file
