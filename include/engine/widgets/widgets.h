@@ -33,7 +33,6 @@ typedef gbool_t (*widgets_t)();
 
 enum state_e {
     NORMAL,
-    HOVERED,
     PRESSED
 };
 

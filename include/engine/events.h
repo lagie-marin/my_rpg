@@ -78,8 +78,8 @@ void evt_mouse_moved(sfEvent event);
 
 /**
  * @brief Get the events move object
- * 
- * @return events_fct_t* 
+ * @return events_fct_t *
  */
 events_fct_t *get_events_move(void);
+
 #endif

@@ -7,17 +7,24 @@
 #include "engine/window.h"
 #include "engine/events.h"
 
+static void *getcontent(list_widgets_t *widget)
+{
+    if (widget == NULL)
+        return NULL;
+    return widget->content;
+}
+
 static void interact_widgets(list_widgets_t *widgets, sfEvent event)
 {
     static list_widgets_t *old_widget = NULL;
-    events_fct_t *event_move_handler = get_events_move();
+    void *content = getcontent(widgets);
 
     if (old_widget != NULL && (widgets == NULL || old_widget != widgets))
         if (old_widget->type == BUTTON)
-            event_move_handler[1](old_widget->content, event.mouseMove);
+            default_unhovered(old_widget->content, event.mouseMove);
     if (widgets != NULL) {
         if (widgets->type == BUTTON)
-            event_move_handler[0](widgets->content, event.mouseMove);
+            ((button_t *)content)->fhovered(content, event.mouseMove);
         old_widget = widgets;
     }
 }
