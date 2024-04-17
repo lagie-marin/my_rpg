@@ -10,7 +10,14 @@
 #ifndef EVENTS_H
     #define EVENTS_H
 
+typedef enum type_event_e type_event_t;
 typedef void (*events_fct_t)();
+
+enum type_event_e {
+    EVT_MOVE,
+    EVT_PRESSED,
+    EVT_RELEASED
+};
 
 /**
  * @brief permet d'initialiser les events utilisé dans l'engine
@@ -82,4 +89,12 @@ void evt_mouse_moved(sfEvent event);
  */
 events_fct_t *get_events_move(void);
 
+/**
+ * @brief Permet d'intéragir avec les widgets, cette fonction permet d'avoir
+ * tout les types d'interaction avec les widgets
+ * @param widget widget actuelle
+ * @param event définie le système de l'event et ces paramètre
+ * @param type type d'interaction
+ */
+void interact_widget(list_widgets_t *widget, sfEvent event, type_event_t type);
 #endif
