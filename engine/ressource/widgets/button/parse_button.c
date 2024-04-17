@@ -30,6 +30,7 @@ sload_t gmap_parse_button(char *line, canvas_t **step, sload_t tl)
     btn->hovered = gettexture_by_name(elmt[10]);
     btn->pressed = gettexture_by_name(elmt[11]);
     btn->disabled = gettexture_by_name(elmt[12]);
+    setbtn_shape_by_texture(btn, btn->normal);
     free_strnarray(elmt, 1);
     add_widget(&step[0]->widgets, btn, BUTTON);
     return tl;
