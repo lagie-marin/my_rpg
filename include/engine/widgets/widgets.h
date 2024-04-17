@@ -33,6 +33,7 @@ typedef gbool_t (*widgets_t)();
 
 enum state_e {
     NORMAL,
+    HOVERED,
     PRESSED
 };
 
@@ -144,9 +145,8 @@ void delete_widget(list_widgets_t *begin);
 
 /**
  * @brief permet de récuperer le content du widget
- * 
  * @param widget le widget actuel
- * @return void* 
+ * @return void*
  */
 void *getcontent(list_widgets_t *widget);
 
