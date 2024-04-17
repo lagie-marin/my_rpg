@@ -6,6 +6,13 @@
 */
 #include "engine/widgets/widgets.h"
 
+void *getcontent(list_widgets_t *widget)
+{
+    if (widget == NULL)
+        return NULL;
+    return widget->content;
+}
+
 load_t load(widgets_type_t type)
 {
     static load_t load_handler[2];

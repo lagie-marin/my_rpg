@@ -7,13 +7,6 @@
 #include "engine/window.h"
 #include "engine/events.h"
 
-static void *getcontent(list_widgets_t *widget)
-{
-    if (widget == NULL)
-        return NULL;
-    return widget->content;
-}
-
 static void interact_widgets(list_widgets_t *widgets, sfEvent event)
 {
     static list_widgets_t *old_widget = NULL;

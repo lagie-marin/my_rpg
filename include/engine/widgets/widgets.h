@@ -142,6 +142,14 @@ void add_widget(list_widgets_t **begin, void *widget, widgets_type_t type);
  */
 void delete_widget(list_widgets_t *begin);
 
+/**
+ * @brief permet de récuperer le content du widget
+ * 
+ * @param widget le widget actuel
+ * @return void* 
+ */
+void *getcontent(list_widgets_t *widget);
+
 canvas_t **add_step(canvas_t **step, canvas_t *new_step);
 canvas_t **rm_step(canvas_t **step);
 int len_step(canvas_t **step);
