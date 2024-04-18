@@ -381,10 +381,18 @@ sfColor gettexture_tint_by_name(char *name);
 sfColor gettexture_border_by_name(char *name);
 
 /**
- * @brief Décharge les textures
+ * @brief Permet de décharger les textures
  */
 void unload_textures(void);
 
+/**
+ * @brief Permet de parser les boutons qui se trouve dans le fichier .gmap
+ * 
+ * @param line la ligne qui contient les différents arguments
+ * @param step les étapes actuelles
+ * @param tl l'étape dans le chargement
+ * @return sload_t tl
+ */
 sload_t gmap_parse_button(char *line, canvas_t **step, sload_t tl);
 button_t *create_button(char *name);
 void setbtn_shape_by_name_texture(button_t *button, char *name_texture);
