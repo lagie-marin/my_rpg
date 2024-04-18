@@ -221,7 +221,12 @@ void setcanvas_size(canvas_t *canvas, v2f_t size);
  * @param widget le widget à ajouter
  */
 void setcanvas_widget(canvas_t *canvas, void *widget);
-void setcurrent_canvas(int x, int y);
+
+/**
+ * @brief récupere le canvas à partir de sont nom
+ * @param name le nom du canvas
+ * @return canvas_t* NULL | canvas
+ */
 canvas_t *getcanvas_name(char *name);
 v2i_t getcanvas_pos_by_name(char *name);
 v2f_t getcanvas_size_by_name(char *name);
