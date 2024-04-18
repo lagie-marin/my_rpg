@@ -276,6 +276,11 @@ void unload_canvas(canvas_t *canvas);
  * @param canvas canvas à supprimer
  */
 void delete_all_canvas(canvas_t **canvas);
+
+/**
+ * @brief supprime le canvas de l'interface ainsi que son contenue
+ * @param canvas canvas à supprimer
+ */
 void delete_canvas(canvas_t *canvas);
 
 // sload gmap_parse_combo(char *line, canvas_t **step, sload tl);
