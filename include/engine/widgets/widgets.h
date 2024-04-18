@@ -185,6 +185,13 @@ int len_step(canvas_t **step);
  * @return sload_t tl
  */
 sload_t gmap_parse_canvas(char *line, canvas_t ***step, sload_t tl);
+
+/**
+ * @brief Crée un canvas avec le nom qu'on lui a donnée ainsi que des
+ * valeurs pas defaut
+ * @param name nom du canvas
+ * @return canvas_t* retourne le canvas
+ */
 canvas_t *create_canvas(char *name);
 void setcanvas_name(canvas_t *canvas, char *name);
 void setcanvas_pos(canvas_t *canvas, v2i_t pos);
