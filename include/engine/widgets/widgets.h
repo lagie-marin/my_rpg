@@ -394,6 +394,13 @@ void unload_textures(void);
  * @return sload_t tl
  */
 sload_t gmap_parse_button(char *line, canvas_t **step, sload_t tl);
+
+/**
+ * @brief Crée un bouton avec le nom qu'on lui a donnée ainsi que des
+ * valeurs pas defaut
+ * @param name nom du bouton
+ * @return button_t* retourne le bouton
+ */
 button_t *create_button(char *name);
 void setbtn_shape_by_name_texture(button_t *button, char *name_texture);
 void setbtn_shape_by_texture(button_t *button, texture_t *texture);
