@@ -440,10 +440,16 @@ void setbtn_shape_scale(button_t *button, v2f_t scale);
 
 /**
  * @brief Ajoute l'information si le bouton est désactiver
- * @param button le bouton où l'on veyx appliquer la désactivation
+ * @param button le bouton où l'on veux appliquer la désactivation
  * @param disabled la désactivation à appliquer au bouton
  */
 void setbutton_disabled(button_t *button, gbool_t disabled);
+
+/**
+ * @brief Ajoute la thickness au bouton
+ * @param button le bouton où l'on veux appliquer la thickness
+ * @param thickness la thickness à appliquer au bouton
+ */
 void setbutton_thickness(button_t *button, float thickness);
 void setbutton_event_hovered(button_t *button, fhovered_t hovered);
 void setbutton_event_pressed(button_t *button, fpressed_t pressed);
