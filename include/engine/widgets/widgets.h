@@ -153,7 +153,8 @@ void *getcontent(list_widgets_t *widget);
 
 /**
  * @brief permet d'ajouter les étates au niveau des canvas et permet
- * d'ajouter les widgets au bonne endroit
+ * d'ajouter les widgets dans les bon canvas. La méthode utilisé: Pile,
+ * premier ajouter dernier sortie
  * @param step étape actuelle
  * @param new_step nouveau canvas à ajouter dans la step
  * @return canvas_t** retourne les nouvelles étapes
@@ -174,6 +175,15 @@ canvas_t **rm_step(canvas_t **step);
  */
 int len_step(canvas_t **step);
 
+/**
+ * @brief permet de parser les canvas avec leurs arguments et d'ajouter le
+ * canvas dans l'interface qui permettera ensuite d'afficher les différents
+ * widgets.
+ * @param line la ligne qui contient les différents arguments
+ * @param step les étapes actuelles
+ * @param tl l'étape dans le chargement
+ * @return sload_t tl
+ */
 sload_t gmap_parse_canvas(char *line, canvas_t ***step, sload_t tl);
 canvas_t *create_canvas(char *name);
 void setcanvas_name(canvas_t *canvas, char *name);
