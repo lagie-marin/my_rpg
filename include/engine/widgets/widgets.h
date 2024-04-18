@@ -344,10 +344,40 @@ void settexture_border(texture_t *texture, sfColor border);
  * @param texture texture à ajouter
  */
 void append_texture(texture_t *texture);
+
+/**
+ * @brief Récupère la texture grace à son nom
+ * @param name nom de la texture
+ * @return texture_t* texture
+ */
 texture_t *gettexture_by_name(char *name);
+
+/**
+ * @brief Obtenir la texture img par le nom
+ * @param name nom de la texture
+ * @return char* img
+ */
 char *gettexture_img_by_name(char *name);
+
+/**
+ * @brief Obtenir la taille de la texture par son nom
+ * @param name nom de la texture
+ * @return v2f_t size
+ */
 v2f_t gettexture_size_by_name(char *name);
+
+/**
+ * @brief Obtenir la teinte de texture par son nom
+ * @param name nom de la texture
+ * @return sfColor color
+ */
 sfColor gettexture_tint_by_name(char *name);
+
+/**
+ * @brief Obtenir la bordure de texture par son nom
+ * @param name nom de la texture
+ * @return sfColor border color
+ */
 sfColor gettexture_border_by_name(char *name);
 void unload_textures(void);
 
