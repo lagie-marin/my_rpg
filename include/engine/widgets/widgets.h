@@ -405,10 +405,16 @@ button_t *create_button(char *name);
 
 /**
  * @brief Ajoute la texture avec son nom au shape du bouton
- * @param button bouton que le veux modifier
+ * @param button bouton où l'on veux appliquer la texture
  * @param name_texture nom de la texture à ajouter
  */
 void setbtn_shape_by_name_texture(button_t *button, char *name_texture);
+
+/**
+ * @brief Ajoute la texture au shape du bouton
+ * @param button bouton où l'on veux appliquer la texture
+ * @param texture texture à appliquer au bouton
+ */
 void setbtn_shape_by_texture(button_t *button, texture_t *texture);
 void setbtn_shape_pos(button_t *button, v2f_t pos);
 void setbtn_shape_size(button_t *button, v2f_t size);
