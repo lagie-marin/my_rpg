@@ -249,6 +249,14 @@ v2f_t getcanvas_size_by_name(char *name);
  * @return list_widgets_t* NULL | Widget
  */
 list_widgets_t *getcanvas_widget_by_name(char *name);
+
+/**
+ * @brief Vérifie si le canvas est dans les coordonées donnée.
+ * @param x Coordonnée x
+ * @param y Coordonnée y
+ * @param canvas canvas à vérifier
+ * @return gbool_t FALSE | TRUE
+ */
 gbool_t atposition_contain_canvas(int x, int y, canvas_t *canvas);
 void load_canvas(canvas_t *canvas);
 void unload_canvas(canvas_t *canvas);
