@@ -100,7 +100,6 @@ void interact_widget(list_widgets_t *widget, sfEvent event, type_event_t type);
 
 /**
  * @brief Get the state object
- * 
  * @param widget widget actuelle
  * @return state_t
  */
