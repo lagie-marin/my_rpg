@@ -316,9 +316,33 @@ void settexture_name(texture_t *texture, char *name);
  * @param img image à ajouter
  */
 void settexture_img(texture_t *texture, char *img);
+
+/**
+ * @brief Ajoute une taille à la texture
+ * @param texture texture à modifier
+ * @param size taille à ajouter
+ */
 void settexture_size(texture_t *texture, v2f_t size);
+
+/**
+ * @brief Ajoute une tint à la texture
+ * @param texture texture à modifier
+ * @param tint tint à ajouter
+ */
 void settexture_tint(texture_t *texture, sfColor tint);
+
+/**
+ * @brief Ajoute une couleur pour la bordure de la texture
+ * @param texture texture à modifier
+ * @param border couleur de la bordure en rgba
+ */
 void settexture_border(texture_t *texture, sfColor border);
+
+/**
+ * @brief Ajoute la texture dans une structure dédier au texture afin de
+ * pouvoir l'utiliser plus facilement plus tard
+ * @param texture texture à ajouter
+ */
 void append_texture(texture_t *texture);
 texture_t *gettexture_by_name(char *name);
 char *gettexture_img_by_name(char *name);
