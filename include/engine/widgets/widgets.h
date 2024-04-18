@@ -195,11 +195,17 @@ sload_t gmap_parse_canvas(char *line, canvas_t ***step, sload_t tl);
 canvas_t *create_canvas(char *name);
 
 /**
- * @brief Définie le nom du widget
+ * @brief Définie le nom du canvas
  * @param canvas canvas à modifier
  * @param name nouveau nom du widget
  */
 void setcanvas_name(canvas_t *canvas, char *name);
+
+/**
+ * @brief Définie les positions du canvas
+ * @param canvas canvas à modifier
+ * @param pos nouvelle position du canvas
+ */
 void setcanvas_pos(canvas_t *canvas, v2i_t pos);
 void setcanvas_size(canvas_t *canvas, v2f_t size);
 void setcanvas_widget(canvas_t *canvas, void *widget);
