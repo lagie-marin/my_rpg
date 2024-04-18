@@ -224,10 +224,16 @@ void setcanvas_widget(canvas_t *canvas, void *widget);
 
 /**
  * @brief récupere le canvas à partir de sont nom
- * @param name le nom du canvas
+ * @param name nom du canvas
  * @return canvas_t* NULL | canvas
  */
 canvas_t *getcanvas_name(char *name);
+
+/**
+ * @brief récupere la position du canvas à partir de sont nom
+ * @param name nom du canvas
+ * @return v2i_t {-1, -1} | position du canvas
+ */
 v2i_t getcanvas_pos_by_name(char *name);
 v2f_t getcanvas_size_by_name(char *name);
 list_widgets_t *getcanvas_widget_by_name(char *name);
