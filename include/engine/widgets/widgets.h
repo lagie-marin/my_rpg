@@ -309,6 +309,12 @@ texture_t *create_texture(char *name);
  * @param name nouveau nom
  */
 void settexture_name(texture_t *texture, char *name);
+
+/**
+ * @brief Ajoute une image à la texture
+ * @param texture texture à modifier
+ * @param img image à ajouter
+ */
 void settexture_img(texture_t *texture, char *img);
 void settexture_size(texture_t *texture, v2f_t size);
 void settexture_tint(texture_t *texture, sfColor tint);
