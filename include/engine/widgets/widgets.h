@@ -430,6 +430,12 @@ void setbtn_shape_pos(button_t *button, v2f_t pos);
  * @param size la taille à appliquer au bouton
  */
 void setbtn_shape_size(button_t *button, v2f_t size);
+
+/**
+ * @brief Ajoute le scale du bouton au shape
+ * @param button bouton où l'on veux appliquer le scale
+ * @param scale le scale à appliquer au bouton
+ */
 void setbtn_shape_scale(button_t *button, v2f_t scale);
 void setbutton_disabled(button_t *button, gbool_t disabled);
 void setbutton_thickness(button_t *button, float thickness);
