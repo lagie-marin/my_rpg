@@ -416,6 +416,12 @@ void setbtn_shape_by_name_texture(button_t *button, char *name_texture);
  * @param texture texture à appliquer au bouton
  */
 void setbtn_shape_by_texture(button_t *button, texture_t *texture);
+
+/**
+ * @brief Ajoute les positions du bouton au shape
+ * @param button bouton où l'on veux appliquer la position
+ * @param pos position à appliquer au bouton
+ */
 void setbtn_shape_pos(button_t *button, v2f_t pos);
 void setbtn_shape_size(button_t *button, v2f_t size);
 void setbtn_shape_scale(button_t *button, v2f_t scale);
