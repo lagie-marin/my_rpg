@@ -437,6 +437,12 @@ void setbtn_shape_size(button_t *button, v2f_t size);
  * @param scale le scale à appliquer au bouton
  */
 void setbtn_shape_scale(button_t *button, v2f_t scale);
+
+/**
+ * @brief Ajoute l'information si le bouton est désactiver
+ * @param button le bouton où l'on veyx appliquer la désactivation
+ * @param disabled la désactivation à appliquer au bouton
+ */
 void setbutton_disabled(button_t *button, gbool_t disabled);
 void setbutton_thickness(button_t *button, float thickness);
 void setbutton_event_hovered(button_t *button, fhovered_t hovered);
