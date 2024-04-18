@@ -260,16 +260,21 @@ list_widgets_t *getcanvas_widget_by_name(char *name);
 gbool_t atposition_contain_canvas(int x, int y, canvas_t *canvas);
 
 /**
- * @brief Charge le canvas
+ * @brief Charge le canvas ainsi que son contenue
  * @param canvas canvas à charger
  */
 void load_canvas(canvas_t *canvas);
 
 /**
- * @brief décharge le canvas
+ * @brief décharge le canvas ainsi que son contenue
  * @param canvas canvas à décharger
  */
 void unload_canvas(canvas_t *canvas);
+
+/**
+ * @brief supprime tout les canvas de l'interface ainsi que son contenue
+ * @param canvas canvas à supprimer
+ */
 void delete_all_canvas(canvas_t **canvas);
 void delete_canvas(canvas_t *canvas);
 
