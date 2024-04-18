@@ -294,6 +294,13 @@ void setcombos_display_arrow(combos_t *combos, gbool_t display);
  * @brief Initialise les textures par defaut de l'engine
  */
 void init_texture(void);
+
+/**
+ * @brief Crée la texture avec des paramètres par defaut
+ * est vous donnée le nom de la texture
+ * @param name nom de la texture
+ * @return texture_t* texture
+ */
 texture_t *create_texture(char *name);
 void settexture_name(texture_t *texture, char *name);
 void settexture_img(texture_t *texture, char *img);
