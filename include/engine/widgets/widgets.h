@@ -302,6 +302,12 @@ void init_texture(void);
  * @return texture_t* texture
  */
 texture_t *create_texture(char *name);
+
+/**
+ * @brief Ajoute le nom à une texture
+ * @param texture texture à modifier
+ * @param name nouveau nom
+ */
 void settexture_name(texture_t *texture, char *name);
 void settexture_img(texture_t *texture, char *img);
 void settexture_size(texture_t *texture, v2f_t size);
