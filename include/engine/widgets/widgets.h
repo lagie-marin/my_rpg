@@ -387,7 +387,6 @@ void unload_textures(void);
 
 /**
  * @brief Permet de parser les boutons qui se trouve dans le fichier .gmap
- * 
  * @param line la ligne qui contient les différents arguments
  * @param step les étapes actuelles
  * @param tl l'étape dans le chargement
