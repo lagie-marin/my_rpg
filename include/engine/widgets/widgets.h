@@ -379,6 +379,10 @@ sfColor gettexture_tint_by_name(char *name);
  * @return sfColor border color
  */
 sfColor gettexture_border_by_name(char *name);
+
+/**
+ * @brief Décharge les textures
+ */
 void unload_textures(void);
 
 sload_t gmap_parse_button(char *line, canvas_t **step, sload_t tl);
