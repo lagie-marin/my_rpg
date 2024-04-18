@@ -290,6 +290,9 @@ void setcombos_size(combos_t *combos, v2f_t size);
 void setcombos_options(combos_t *combos, array_t options, int selected_opt);
 void setcombos_display_arrow(combos_t *combos, gbool_t display);
 
+/**
+ * @brief Initialise les textures par defaut de l'engine
+ */
 void init_texture(void);
 texture_t *create_texture(char *name);
 void settexture_name(texture_t *texture, char *name);
