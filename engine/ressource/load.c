@@ -80,7 +80,7 @@ status_t load_map(char *name)
     size_t len;
     ssize_t read;
     canvas_t **step = stepac();
-    sload_t s = NONE;
+    sload_t s = L_NONE;
 
     file = check_validation_info(name, current_maps);
     if (file == NULL)

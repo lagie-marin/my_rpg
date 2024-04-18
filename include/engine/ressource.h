@@ -14,7 +14,7 @@ typedef enum sload_e sload_t;
 typedef struct maps_s maps_t;
 
 enum sload_e {
-    NONE,
+    L_NONE,
     ON_MAP,
     OUT_MAP,
     ERROR

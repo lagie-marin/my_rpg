@@ -32,6 +32,7 @@ typedef void (*delete_t)();
 typedef gbool_t (*widgets_t)();
 
 enum state_e {
+    NONE = -1,
     NORMAL,
     HOVERED,
     PRESSED

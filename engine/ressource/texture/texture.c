@@ -81,5 +81,5 @@ sload_t gmap_parse_texture(char *line)
     settexture_border(new, get_rgba(element[5]));
     free_strnarray(element, 2);
     append_texture(new);
-    return NONE;
+    return L_NONE;
 }

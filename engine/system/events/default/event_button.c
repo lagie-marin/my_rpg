@@ -15,6 +15,7 @@ void default_hovered(button_t *button, sfMouseMoveEvent mouse)
     (void)mouse;
     if (button->is_disabled == TRUE)
         return;
+    button->state = HOVERED;
     sfRectangleShape_setFillColor(button->btn_shape, tint);
 }
 
@@ -25,6 +26,7 @@ void default_unhovered(button_t *button, sfMouseMoveEvent mouse)
     (void)mouse;
     if (button->is_disabled == TRUE)
         return;
+    button->state = NORMAL;
     sfRectangleShape_setFillColor(button->btn_shape, tint);
 }
 
@@ -35,8 +37,8 @@ void default_pressed(button_t *button, sfMouseButtonEvent mouse)
     (void)mouse;
     if (button->is_disabled == TRUE)
         return;
-    sfRectangleShape_setFillColor(button->btn_shape, tint);
     button->state = PRESSED;
+    sfRectangleShape_setFillColor(button->btn_shape, tint);
 }
 
 void default_released(button_t *button, sfMouseButtonEvent mouse)
@@ -46,6 +48,6 @@ void default_released(button_t *button, sfMouseButtonEvent mouse)
     (void)mouse;
     if (button->is_disabled == TRUE)
         return;
+    button->state = HOVERED;
     sfRectangleShape_setFillColor(button->btn_shape, tint);
-    button->state = NORMAL;
 }
