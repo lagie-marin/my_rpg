@@ -402,6 +402,12 @@ sload_t gmap_parse_button(char *line, canvas_t **step, sload_t tl);
  * @return button_t* retourne le bouton
  */
 button_t *create_button(char *name);
+
+/**
+ * @brief Ajoute la texture avec son nom au shape du bouton
+ * @param button bouton que le veux modifier
+ * @param name_texture nom de la texture à ajouter
+ */
 void setbtn_shape_by_name_texture(button_t *button, char *name_texture);
 void setbtn_shape_by_texture(button_t *button, texture_t *texture);
 void setbtn_shape_pos(button_t *button, v2f_t pos);
