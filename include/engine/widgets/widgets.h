@@ -261,9 +261,14 @@ gbool_t atposition_contain_canvas(int x, int y, canvas_t *canvas);
 
 /**
  * @brief Charge le canvas
- * @param canvas le canvas à charger
+ * @param canvas canvas à charger
  */
 void load_canvas(canvas_t *canvas);
+
+/**
+ * @brief décharge le canvas
+ * @param canvas canvas à décharger
+ */
 void unload_canvas(canvas_t *canvas);
 void delete_all_canvas(canvas_t **canvas);
 void delete_canvas(canvas_t *canvas);
