@@ -242,6 +242,12 @@ v2i_t getcanvas_pos_by_name(char *name);
  * @return v2f_t {-1.0, -1.0} | taille du canvas
  */
 v2f_t getcanvas_size_by_name(char *name);
+
+/**
+ * @brief Récupère les widgets qui se trouve dans le canvas avec son nom
+ * @param name nom du canvas
+ * @return list_widgets_t* NULL | Widget
+ */
 list_widgets_t *getcanvas_widget_by_name(char *name);
 gbool_t atposition_contain_canvas(int x, int y, canvas_t *canvas);
 void load_canvas(canvas_t *canvas);
