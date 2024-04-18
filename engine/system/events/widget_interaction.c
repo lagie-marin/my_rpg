@@ -49,3 +49,7 @@ void interact_widget(list_widgets_t *widget, sfEvent event, type_event_t type)
     else
         interact_move(widget, event);
 }
+
+//is_normal
+//is_hovered
+//is_clicked
