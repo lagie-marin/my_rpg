@@ -151,8 +151,27 @@ void delete_widget(list_widgets_t *begin);
  */
 void *getcontent(list_widgets_t *widget);
 
+/**
+ * @brief permet d'ajouter les étates au niveau des canvas et permet
+ * d'ajouter les widgets au bonne endroit
+ * @param step étape actuelle
+ * @param new_step nouveau canvas à ajouter dans la step
+ * @return canvas_t** retourne les nouvelles étapes
+ */
 canvas_t **add_step(canvas_t **step, canvas_t *new_step);
+
+/**
+ * @brief permet de retirer la dernière étape lors du parsing
+ * @param step les étapes actuelles
+ * @return canvas_t** retourne les nouvelles étapes
+ */
 canvas_t **rm_step(canvas_t **step);
+
+/**
+ * @brief permet de récupérer le nombre d'étape actuelle
+ * @param step les étapes actuelles
+ * @return int la taille des étapes
+ */
 int len_step(canvas_t **step);
 
 sload_t gmap_parse_canvas(char *line, canvas_t ***step, sload_t tl);
