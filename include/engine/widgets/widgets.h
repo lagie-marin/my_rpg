@@ -193,6 +193,12 @@ sload_t gmap_parse_canvas(char *line, canvas_t ***step, sload_t tl);
  * @return canvas_t* retourne le canvas
  */
 canvas_t *create_canvas(char *name);
+
+/**
+ * @brief Définie le nom du widget
+ * @param canvas canvas à modifier
+ * @param name nouveau nom du widget
+ */
 void setcanvas_name(canvas_t *canvas, char *name);
 void setcanvas_pos(canvas_t *canvas, v2i_t pos);
 void setcanvas_size(canvas_t *canvas, v2f_t size);
