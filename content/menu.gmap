@@ -10,7 +10,9 @@ TEXTURE fnormal;none;200;50;(165,42,42,255);(0,0,0,255)
 [END-MAP]
 [CANVAS;name;pos_x;pos_y;size_x;size_y;bg_color]
 TEXTURE name;img;size_x;size_y;tint(rgba);border(rgba);
+TILES name;spritesheet;nb_frame_x;nb_frame_y;width_frame;height_frame;(name,frame_start,frame_end,fps);...
 COMBO name;pos_x;pos_y;size_x;size_y;(option);selected_option;diplay_arrow;normal;hovered;pressed;disabled
 BUTTON name;pos_x;pos_y;size_x;size_y;scale_x;scale_y;disabled;thickness;normal;hovered;pressed;disabled
 EDIT-AREA name;pos_x;pos_y;size_x;size_y;scale_x;scale_y;writable;normal;hovered;pressed;disabled
 SLIDER name;pos_x;pos_y;size_x;size_y;scale_x;scale_y;locked;slider_bar_color;slider_handle_color;normal_bar;hovered_bar;disabled_bar;normal_thumb;hovered_thumb;disabled_thumb
+PLAYER name;pos_x;pos_y;size_x;size_y;scale_x;scale_y;
