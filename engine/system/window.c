@@ -6,25 +6,11 @@
 */
 #include "engine/window.h"
 
-game_engine_t *Game_engine;
-
-static void preload_windows(void)
-{
-    window_infos_t *windows = malloc(sizeof(window_infos_t));
-
-    my_printf("Preload windows\n");
-    windows->bits = DEFAULT_BIT;
-    windows->fps = DEFAULT_FPS;
-    windows->height = DEFAULT_HEIGHT;
-    windows->width = DEFAULT_WIDTH;
-    windows->window = NULL;
-    Game_engine->windows = windows;
-}
 
 static void init_windows(void)
 {
     sfVideoMode mode = {DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_BIT};
-    window_infos_t *windows = Game_engine->windows;
+    window_infos_t *windows = get_engine()->windows;
     char name[16] = "tanker_than_you";
 
     my_printf("Init windows\n");
@@ -37,19 +23,38 @@ static void window_destroy(void)
     delete_scan();
     delete_all_canvas(get_mapinfo()->canvas);
     unload_textures();
-    if (Game_engine->windows != NULL)
-        sfRenderWindow_destroy(Game_engine->windows->window);
-    FREE(Game_engine->windows);
-    FREE(Game_engine);
-    Game_engine = NULL;
+    if (get_engine()->windows != NULL)
+        sfRenderWindow_destroy(get_engine()->windows->window);
+    FREE(get_engine()->windows);
+    FREE(get_engine());
+}
+
+game_engine_t *get_engine(void)
+{
+    static game_engine_t *engine = NULL;
+    static gbool_t is_init = FALSE;
+    static window_infos_t *windows;
+
+    if (is_init == TRUE)
+        return engine;
+    engine = malloc(sizeof(window_infos_t));
+    windows = malloc(sizeof(window_infos_t));
+    my_printf("Preload windows\n");
+    windows->bits = DEFAULT_BIT;
+    windows->fps = DEFAULT_FPS;
+    windows->height = DEFAULT_HEIGHT;
+    windows->width = DEFAULT_WIDTH;
+    windows->window = NULL;
+    engine->windows = windows;
+    is_init = TRUE;
+    return engine;
 }
 
 int main(void)
 {
-    Game_engine = malloc(sizeof(game_engine_t));
+    get_engine();
     init_map();
     init_texture();
-    preload_windows();
     if (construct() == FAIL)
         return 1;
     init_windows();

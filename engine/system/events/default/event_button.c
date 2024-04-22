@@ -21,13 +21,17 @@ void default_hovered(button_t *button, sfMouseMoveEvent mouse)
 
 void default_unhovered(button_t *button, sfMouseMoveEvent mouse)
 {
-    sfColor tint = button->normal->tint;
+    texture_t *texture = button->normal;
+    sfColor tint = texture->tint;
 
     (void)mouse;
     if (button->is_disabled == TRUE)
         return;
     button->state = NORMAL;
-    sfRectangleShape_setFillColor(button->btn_shape, tint);
+    if (!texture->texture)
+        sfRectangleShape_setFillColor(button->btn_shape, tint);
+    else
+        sfRectangleShape_setTexture(button->btn_shape, texture->texture, sfFalse);
 }
 
 void default_pressed(button_t *button, sfMouseButtonEvent mouse)

@@ -34,10 +34,10 @@ texture_t *create_texture(char *name)
     texture_t *texture = malloc(sizeof(texture_t));
 
     texture->name = name;
-    texture->img = NULL;
     texture->size = (v2f_t) {20, 20};
     texture->tint = DEF_TINT;
     texture->border = DEF_BORDER;
+    texture->texture = NULL;
     return texture;
 }
 
@@ -60,9 +60,10 @@ void unload_textures(void)
     texture_t **textures = get_mapinfo()->textures;
 
     for (int i = 0; textures[i]; i++) {
+        if (textures[i]->texture != NULL)
+            sfTexture_destroy(textures[i]->texture);
         if (i > 3)
             FREE(textures[i]->name);
-        FREE(textures[i]->img);
         FREE(textures[i]);
     }
     FREE(textures);
@@ -72,9 +73,13 @@ void unload_textures(void)
 sload_t gmap_parse_texture(char *line)
 {
     array_t element = my_strtok(&line[8], ';');
-    v2f_t size = {my_atoi(element[2]), my_atoi(element[3])};
-    texture_t *new = create_texture(element[0]);
+    v2f_t size;
+    texture_t *new;
 
+    if (str_arraylen(element) != 6 && free_strarray(element))
+        return ERROR;
+    new = create_texture(element[0]);
+    size = (v2f_t){my_atoi(element[2]), my_atoi(element[3])};
     settexture_img(new, element[1]);
     settexture_size(new, size);
     settexture_tint(new, get_rgba(element[4]));

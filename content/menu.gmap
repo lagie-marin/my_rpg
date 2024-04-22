@@ -1,4 +1,4 @@
-TEXTURE fnormal;none;200;50;(165,42,42,255);(0,0,0,255)
+TEXTURE fnormal;content/texture/hub/Start.png;200;50;(165,42,42,255);(0,0,0,255)
 
 [menu]
     [CANVAS;header;0;0;1920;200;]

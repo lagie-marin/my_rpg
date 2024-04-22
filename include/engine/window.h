@@ -104,8 +104,6 @@ struct game_engine_s {
     map_info_t *map_info;
 };
 
-extern game_engine_t *Game_engine;
-
 void init_map(void);
 map_info_t *get_mapinfo(void);
 void game_loop(void);
@@ -135,6 +133,12 @@ ui_t get_window_fps(void);
  * @return ui
  */
 ui_t get_window_bits(void);
+
+/**
+ * @brief Get the engine object
+ * @return game_engine_t* 
+ */
+game_engine_t *get_engine(void);
 
 /**
  * @brief Permet de mettre à jour la fenetre

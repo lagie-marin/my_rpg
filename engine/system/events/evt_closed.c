@@ -10,5 +10,5 @@
 void evt_closed(sfEvent event)
 {
     (void)event;
-    sfRenderWindow_close(Game_engine->windows->window);
+    sfRenderWindow_close(get_engine()->windows->window);
 }

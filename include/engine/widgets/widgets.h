@@ -85,10 +85,10 @@ struct list_widgets_s {
 
 struct texture_s {
     char *name;
-    char *img;
     v2f_t size;
     sfColor tint;
     sfColor border;
+    sfTexture *texture;
 };
 
 struct canvas_s {
@@ -353,11 +353,11 @@ void append_texture(texture_t *texture);
 texture_t *gettexture_by_name(char *name);
 
 /**
- * @brief Obtenir la texture img par le nom
- * @param name nom de la texture
- * @return char* img
+ * @brief Récupère la texture qui sera appliquer sur l'élément
+ * @param texture la structure pour la structure
+ * @return sfTexture* texture
  */
-char *gettexture_img_by_name(char *name);
+sfTexture *gettexture(texture_t *texture);
 
 /**
  * @brief Obtenir la taille de la texture par son nom

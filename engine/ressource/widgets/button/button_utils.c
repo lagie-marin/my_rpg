@@ -21,7 +21,7 @@ void load_button(button_t *button)
 
 void draw_button(button_t *button)
 {
-    sfRenderWindow *win = Game_engine->windows->window;
+    sfRenderWindow *win = get_engine()->windows->window;
 
     sfRenderWindow_drawRectangleShape(win, button->btn_shape, NULL);
 }

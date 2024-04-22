@@ -1,9 +1,10 @@
 /*
-** EPITECH PROJECT, 2024
-** B-MUL-200-LYN-2-1-mypaint-maellie.brient-bert
+** EPITECH PROJECT, 2023
+** my_rpg
 ** File description:
 ** map_info.c
 */
+
 #include "engine/core.h"
 #include "engine/ressource.h"
 #include "engine/types.h"
@@ -12,12 +13,12 @@
 
 map_info_t *get_mapinfo(void)
 {
-    return Game_engine->map_info;
+    return get_engine()->map_info;
 }
 
 void init_map(void)
 {
-    Game_engine->map_info = malloc(sizeof(map_info_t));
+    get_engine()->map_info = malloc(sizeof(map_info_t));
     my_printf("Init map\n");
     my_printf("Scanning map\n");
     get_mapinfo()->maps = scan("./content");

@@ -10,7 +10,7 @@
 
 void game_loop(void)
 {
-    window_infos_t *windows = Game_engine->windows;
+    window_infos_t *windows = get_engine()->windows;
 
     my_printf("Launch the application\n");
     sfRenderWindow_setFramerateLimit(windows->window, windows->fps);

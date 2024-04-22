@@ -8,7 +8,7 @@
 #include "engine/window.h"
 void event_manager(void)
 {
-    window_infos_t *windows = Game_engine->windows;
+    window_infos_t *windows = get_engine()->windows;
     events_fct_t *event_handler = get_events();
     sfEvent event;
 

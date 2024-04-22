@@ -19,9 +19,9 @@ texture_t *gettexture_by_name(char *name)
     return NULL;
 }
 
-char *gettexture_img_by_name(char *name)
+sfTexture *gettexture(texture_t *texture)
 {
-    return gettexture_by_name(name)->img;
+    return texture->texture;
 }
 
 v2f_t gettexture_size_by_name(char *name)

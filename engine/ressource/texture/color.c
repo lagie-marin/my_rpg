@@ -11,3 +11,4 @@ sfColor color(int r, int g, int b, int a)
 {
     return (sfColor) {r, g, b, a};
 }
+

@@ -9,20 +9,20 @@
 
 ui_t get_window_width(void)
 {
-    return Game_engine->windows->width;
+    return get_engine()->windows->width;
 }
 
 ui_t get_window_height(void)
 {
-    return Game_engine->windows->height;
+    return get_engine()->windows->height;
 }
 
 ui_t get_window_fps(void)
 {
-    return Game_engine->windows->fps;
+    return get_engine()->windows->fps;
 }
 
 ui_t get_window_bits(void)
 {
-    return Game_engine->windows->bits;
+    return get_engine()->windows->bits;
 }
