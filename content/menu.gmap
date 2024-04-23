@@ -1,10 +1,10 @@
-TEXTURE fnormal;content/texture/hub/Start.png;200;50;(165,42,42,255);(0,0,0,255)
+TEXTURE fnormal;content/texture/hub/Start.png;200;50;(255,255,255,255);(0,0,0,255)
 
 [menu]
     [CANVAS;header;0;0;1920;200;]
-        BUTTON file;0;0;200;50;1;1;false;1;fnormal;hovered;pressed;disabled
+        BUTTON file;0;0;200;50;1;1;false;1;normal;hovered;pressed;disabled
         BUTTON file2;0;50;200;150;1;1;false;1;normal;hovered;pressed;disabled
-        BUTTON edition;200;0;200;200;1;1;false;1;normal;hovered;pressed;disabled
+        BUTTON edition;200;0;200;200;1;1;false;1;fnormal;hovered;pressed;disabled
         BUTTON help;400;0;200;50;1;1;false;1;normal;hovered;pressed;disabled
     [END]
 [END-MAP]

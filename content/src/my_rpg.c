@@ -20,5 +20,9 @@ status_t construct(void)
 
 void event_tick(void)
 {
+    static int write = 0;
+
+    if (!write)
+        write = 1;
     return;
 }

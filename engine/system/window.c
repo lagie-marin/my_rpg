@@ -11,7 +11,7 @@ static void init_windows(void)
 {
     sfVideoMode mode = {DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_BIT};
     window_infos_t *windows = get_engine()->windows;
-    char name[16] = "tanker_than_you";
+    char name[49] = "The Ancient Secrets: The Secrets of the Eternity";
 
     my_printf("Init windows\n");
     windows->window = sfRenderWindow_create(mode, name, WIN_STYLE, NULL);

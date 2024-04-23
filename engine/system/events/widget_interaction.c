@@ -15,15 +15,19 @@ static void interact_pressed(list_widgets_t *widget, sfEvent event)
         return;
     content = widget->content;
     if (get_state(widget) == HOVERED || get_state(widget) == NORMAL)
-        if (widget->type == BUTTON)
+        if (widget->type == BUTTON) {
+            my_printf("le bouton est cliquer\n");
             ((button_t *)content)->fpressed(content, event.mouseButton);
+        }
 }
 
 static void interact_released(list_widgets_t *widget, sfEvent event)
 {
     if (widget != NULL) {
-        if (widget->type == BUTTON && get_state(widget) == PRESSED)
+        if (widget->type == BUTTON && get_state(widget) == PRESSED) {
+            my_printf("le bouton est relacher\n");
             default_released(widget->content, event.mouseButton);
+        }
     }
 }
 
@@ -32,9 +36,11 @@ static void interact_move(list_widgets_t *widget, sfEvent event)
     static list_widgets_t *old_widget = NULL;
     void *content = getcontent(widget);
 
-    if (old_widget != NULL && (widget == NULL || old_widget != widget))
+    if (old_widget != NULL && (widget == NULL || old_widget != widget)) {
         if (old_widget->type == BUTTON)
             default_unhovered(old_widget->content, event.mouseMove);
+        old_widget = NULL;
+    }
     if (widget != NULL && get_state(widget) == NORMAL) {
         if (widget->type == BUTTON)
             ((button_t *)content)->fhovered(content, event.mouseMove);

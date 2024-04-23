@@ -6,6 +6,7 @@
 */
 #include "engine/core.h"
 #include "engine/widgets/widgets.h"
+#include "engine/color.h"
 
 static void applybutton_texture(button_t *button, texture_t *texture)
 {
@@ -14,10 +15,7 @@ static void applybutton_texture(button_t *button, texture_t *texture)
     setbtn_shape_pos(button, button->pos);
     setbtn_shape_size(button, button->size);
     setbtn_shape_scale(button, button->scale);
-    if (!texture->texture)
-        sfRectangleShape_setFillColor(btn_shape, texture->tint);
-    else
-        sfRectangleShape_setTexture(btn_shape, texture->texture, sfFalse);
+    settexture(btn_shape, texture);
     sfRectangleShape_setOutlineThickness(btn_shape, button->thickness);
     sfRectangleShape_setOutlineColor(btn_shape, texture->border);
 }

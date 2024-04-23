@@ -136,7 +136,7 @@ ui_t get_window_bits(void);
 
 /**
  * @brief Get the engine object
- * @return game_engine_t* 
+ * @return game_engine_t*
  */
 game_engine_t *get_engine(void);
 
