@@ -15,10 +15,7 @@ sfColor color(int r, int g, int b, int a)
 
 void settexture(sfRectangleShape *btn_shape, texture_t *texture)
 {
-    if (texture->texture != NULL) {
-        sfRectangleShape_setFillColor(btn_shape, texture->tint);
+    sfRectangleShape_setFillColor(btn_shape, texture->tint);
+    if (texture->texture != NULL)
         sfRectangleShape_setTexture(btn_shape, texture->texture, sfFalse);
-    }
-    else
-        sfRectangleShape_setFillColor(btn_shape, texture->tint);
 }

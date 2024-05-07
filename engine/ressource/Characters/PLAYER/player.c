@@ -5,21 +5,12 @@
 ** player.c
 */
 
-#include <SFML/Graphics.h>
-#include <stdlib.h>
+#include "engine/characters/player.h"
 
-
-typedef struct player_s {
-    sfSprite *sprite;
-    sfTexture *texture;
-    sfVector2f position;
-    int health;
-    int speed;
-} player_t;
-
-player_t* create_player(char *texture_path)
+player_t *create_player(char *texture_path)
 {
     player_t *player = malloc(sizeof(player_t));
+
     sfSprite_setTexture(player->sprite, player->texture, sfTrue);
     player->texture = sfTexture_createFromFile(texture_path, NULL);
     player->sprite = sfSprite_create();

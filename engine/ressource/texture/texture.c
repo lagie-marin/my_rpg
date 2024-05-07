@@ -84,7 +84,6 @@ sload_t gmap_parse_texture(char *line)
     settexture_img(new, element[1]);
     settexture_size(new, size);
     settexture_tint(new, get_rgba(element[4]));
-    my_printf("color2: %i %i %i %i\n", new->tint.r, new->tint.g, new->tint.b, new->tint.a);
     settexture_border(new, get_rgba(element[5]));
     free_strnarray(element, 2);
     append_texture(new);
