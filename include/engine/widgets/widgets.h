@@ -17,7 +17,6 @@ typedef enum state_e state_t;
 typedef enum widgets_type_s widgets_type_t;
 typedef enum cursor_s cursor_t;
 typedef enum search_s search_t;
-typedef enum combo_elmt_s combo_elmt_t;
 typedef struct list_widgets_s list_widgets_t;
 typedef struct texture_s texture_t;
 typedef struct canvas_s canvas_t;
@@ -66,15 +65,6 @@ enum search_s {
     POS
 };
 
-enum combo_elmt_s {
-    NAME_CB,
-    POS_CB,
-    SIZE,
-    OPTIONS,
-    SELECTED,
-    DISPLAY_ARROW,
-    TEXTURE
-};
 
 struct list_widgets_s {
     widgets_type_t type;
@@ -97,19 +87,6 @@ struct canvas_s {
     v2f_t size;
     list_widgets_t *widgets;
     gbool_t visible;
-};
-
-struct combos_s {
-    char *name;
-    v2f_t pos;
-    v2f_t size;
-    array_t option;
-    int selected_opt;
-    gbool_t display_arrow;
-    texture_t *normal;
-    texture_t *hovered;
-    texture_t *pressed;
-    texture_t *disabled;
 };
 
 struct button_s {
@@ -282,13 +259,6 @@ void delete_all_canvas(canvas_t **canvas);
  * @param canvas canvas à supprimer
  */
 void delete_canvas(canvas_t *canvas);
-
-// sload gmap_parse_combo(char *line, canvas_t **step, sload tl);
-void setcombos_name(combos_t *combos, char *name);
-void setcombos_pos(combos_t *combos, v2f_t pos);
-void setcombos_size(combos_t *combos, v2f_t size);
-void setcombos_options(combos_t *combos, array_t options, int selected_opt);
-void setcombos_display_arrow(combos_t *combos, gbool_t display);
 
 /**
  * @brief Initialise les textures par defaut de l'engine
