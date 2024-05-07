@@ -5,6 +5,7 @@
 ## Makefile
 ##
 SRC = ./content/src/my_rpg.c \
+	./engine/core/coord/at_coordinate.c \
 	./engine/core/file/my_getline.c \
 	./engine/core/numbers/my_intlen.c \
 	./engine/core/numbers/my_strtof.c \
@@ -18,6 +19,7 @@ SRC = ./content/src/my_rpg.c \
 	./engine/core/string/array/str_arraylen.c \
 	./engine/core/string/free/free_strarray.c \
 	./engine/core/string/free/free_strnarray.c \
+	./engine/core/string/letters.c \
 	./engine/core/string/my_atoi.c \
 	./engine/core/string/my_isspace.c \
 	./engine/core/string/my_memset.c \
@@ -30,43 +32,41 @@ SRC = ./content/src/my_rpg.c \
 	./engine/core/string/my_strtok.c \
 	./engine/core/string/nb_leading_space.c \
 	./engine/core/string/str.c \
-	./engine/core/string/letters.c \
-	./engine/core/coord/at_coordinate.c \
+	./engine/ressource/Characters/PLAYER/player.c \
+	./engine/ressource/load.c \
+	./engine/ressource/scan.c \
+	./engine/ressource/texture/color.c \
+	./engine/ressource/texture/gettexture.c \
+	./engine/ressource/texture/init_texture.c \
 	./engine/ressource/texture/settexture.c \
 	./engine/ressource/texture/texture.c \
-	./engine/ressource/texture/gettexture.c \
-	./engine/ressource/texture/color.c \
-	./engine/ressource/texture/init_texture.c \
-	./engine/ressource/widgets/canvas/step.c \
-	./engine/ressource/widgets/canvas/set_canvas.c \
-	./engine/ressource/widgets/canvas/create_canvas.c \
-	./engine/ressource/widgets/canvas/canvas_utils.c \
-	./engine/ressource/widgets/canvas/parse_canvas.c \
-	./engine/ressource/widgets/canvas/get_canvas.c \
-	./engine/ressource/widgets/combo/setcombos.c \
-	./engine/ressource/widgets/widget.c \
+	./engine/ressource/widgets/button/button_utils.c \
+	./engine/ressource/widgets/button/create_button.c \
+	./engine/ressource/widgets/button/get_button.c \
 	./engine/ressource/widgets/button/parse_button.c \
 	./engine/ressource/widgets/button/setbtn_shape.c \
 	./engine/ressource/widgets/button/setbutton.c \
-	./engine/ressource/widgets/button/create_button.c \
-	./engine/ressource/widgets/button/button_utils.c \
-	./engine/ressource/widgets/button/get_button.c \
+	./engine/ressource/widgets/canvas/canvas_utils.c \
+	./engine/ressource/widgets/canvas/create_canvas.c \
+	./engine/ressource/widgets/canvas/get_canvas.c \
+	./engine/ressource/widgets/canvas/parse_canvas.c \
+	./engine/ressource/widgets/canvas/set_canvas.c \
+	./engine/ressource/widgets/canvas/step.c \
 	./engine/ressource/widgets/manager.c \
-	./engine/ressource/load.c \
-	./engine/ressource/scan.c \
+	./engine/ressource/widgets/widget.c \
+	./engine/system/event_manager.c \
 	./engine/system/events/default/event_button.c \
 	./engine/system/events/evt_closed.c \
-	./engine/system/events/evt_mouse_btn_released.c \
-	./engine/system/events/get_events.c \
 	./engine/system/events/evt_mouse_btn_pressed.c \
+	./engine/system/events/evt_mouse_btn_released.c \
 	./engine/system/events/evt_mouse_moved.c \
+	./engine/system/events/get_events.c \
 	./engine/system/events/widget_interaction.c \
-	./engine/system/ui/map_info.c \
-	./engine/system/ui/get_window.c \
-	./engine/system/ui/current_canvas.c \
 	./engine/system/game_loop.c \
+	./engine/system/ui/current_canvas.c \
+	./engine/system/ui/get_window.c \
+	./engine/system/ui/map_info.c \
 	./engine/system/update_window.c \
-	./engine/system/event_manager.c \
 	./engine/system/window.c \
 
 OBJ = ${SRC:.c=.o}

@@ -16,7 +16,6 @@ static void interact_pressed(list_widgets_t *widget, sfEvent event)
     content = widget->content;
     if (get_state(widget) == HOVERED || get_state(widget) == NORMAL)
         if (widget->type == BUTTON) {
-            my_printf("le bouton est cliquer\n");
             ((button_t *)content)->fpressed(content, event.mouseButton);
         }
 }
@@ -25,7 +24,6 @@ static void interact_released(list_widgets_t *widget, sfEvent event)
 {
     if (widget != NULL) {
         if (widget->type == BUTTON && get_state(widget) == PRESSED) {
-            my_printf("le bouton est relacher\n");
             default_released(widget->content, event.mouseButton);
         }
     }

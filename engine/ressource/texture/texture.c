@@ -26,7 +26,6 @@ static sfColor get_rgba(char *str)
     ui8_t b = my_strtol(&str[1], &str);
     ui8_t a = my_strtol(&str[1], &str);
 
-    my_printf("color: %i %i %i %i\n", r, g, b, a);
     return (sfColor) {r, g, b, a};
 }
 
