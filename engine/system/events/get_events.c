@@ -6,6 +6,7 @@
 */
 #include "engine/window.h"
 #include "engine/events.h"
+#include "engine/characters/player.h"
 
 static void none_evt(sfEvent event)
 {
@@ -41,6 +42,7 @@ events_fct_t *get_events(void)
     event_handler[sfEvtMouseButtonPressed] = &evt_mouse_btn_pressed;
     event_handler[sfEvtMouseButtonReleased] = &evt_mouse_btn_released;
     event_handler[sfEvtMouseMoved] = &evt_mouse_moved;
+    event_handler[sfEvtKeyPressed] = &key_pressed;
     is_init = TRUE;
     return event_handler;
 }

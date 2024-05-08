@@ -18,6 +18,13 @@ status_t construct(void)
     return SUCCESS;
 }
 
+void key_pressed(sfEvent event)
+{
+    if (event.type == sfEvtKeyPressed) {
+        printf("Key pressed: %d\n", event.key.code);
+    }
+}
+
 void event_tick(void)
 {
     static int write = 0;

@@ -15,4 +15,6 @@ typedef struct player_s {
     int health;
     int speed;
 } player_t;
+
+void key_pressed(sfEvent event);
 #endif
